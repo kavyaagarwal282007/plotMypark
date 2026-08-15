@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>plotMypark | Navigation</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- NAVBAR -->
+    <header class="top-nav">
+
+        <div class="logo">
+            plot<span>My</span>park
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn">🔔</button>
+            <button class="profile-btn">👤</button>
+        </div>
+
+    </header>
+
+
+    <main class="navigation-page">
+
+        <!-- HEADER -->
+
+        <section class="navigation-header">
+
+            <div>
+
+                <p class="small-text">NAVIGATION</p>
+
+                <h1>Navigate to your spot</h1>
+
+                <p>
+                    Follow the route to your reserved parking space.
+                </p>
+
+            </div>
+
+            <span class="navigation-status">
+                🔵 RESERVED
+            </span>
+
+        </section>
+
+
+        <!-- MAP -->
+
+        <section class="navigation-map">
+
+            <!-- Roads -->
+
+            <div class="nav-road nav-road-1"></div>
+            <div class="nav-road nav-road-2"></div>
+            <div class="nav-road nav-road-3"></div>
+
+
+            <!-- Route -->
+
+            <div class="route-line"></div>
+
+
+            <!-- Starting Point -->
+
+            <div class="map-point start-point">
+                <span>●</span>
+                <small>You</small>
+            </div>
+
+
+            <!-- Destination -->
+
+            <div class="map-point destination-point">
+                <span>📍</span>
+                <small>Parking</small>
+            </div>
+
+
+            <div class="map-location-label">
+                Mall Road
+            </div>
+
+        </section>
+
+
+        <!-- TRIP INFORMATION -->
+
+        <section class="trip-info">
+
+            <div class="destination-info">
+
+                <div class="destination-icon">
+                    🅿️
+                </div>
+
+                <div>
+
+                    <p class="small-text">
+                        DESTINATION
+                    </p>
+
+                    <h2 id="destinationName">
+                        Parking P1
+                    </h2>
+
+                    <p>
+                        📍 Mall Road Parking Zone
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="trip-stats">
+
+                <div>
+                    <strong>450 m</strong>
+                    <span>Distance</span>
+                </div>
+
+                <div>
+                    <strong>4 min</strong>
+                    <span>ETA</span>
+                </div>
+
+                <div>
+                    <strong>Low</strong>
+                    <span>Traffic</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ARRIVAL SIMULATION -->
+
+        <section class="arrival-card">
+
+            <div>
+
+                <p class="small-text">
+                    DEMO MODE
+                </p>
+
+                <h3>Simulate arrival</h3>
+
+                <p>
+                    Use this button during the SIH demo to
+                    simulate reaching the reserved parking space.
+                </p>
+
+            </div>
+
+            <button
+                class="arrival-btn"
+                id="arrivalButton"
+            >
+                I've Arrived
+            </button>
+
+        </section>
+
+
+        <!-- CANCEL NAVIGATION -->
+
+        <button
+            class="cancel-navigation"
+            onclick="window.location.href='home.html'"
+        >
+            End Navigation
+        </button>
+
+    </main>
+
+
+    <!-- BOTTOM NAV -->
+
+    <nav class="bottom-nav">
+
+        <button
+            class="bottom-item"
+            onclick="window.location.href='home.html'"
+        >
+            <span>⌂</span>
+            <p>Home</p>
+        </button>
+
+
+        <button
+            class="bottom-item active"
+            onclick="window.location.href='parking.html'"
+        >
+            <span>🅿️</span>
+            <p>Parking</p>
+        </button>
+
+        <button
+            class="bottom-item"
+            onclick="activateNavAndNavigate(this, 'history.html')"
+        >
+            <span>🧾</span>
+            <p>History</p>
+        </button>
+
+  class="bottom-item"
+    onclick="window.location.href='profile.html'"
+>
+    <span>👤</span>
+    <p>Profile</p>
+        </button>
+
+    </nav>
+
+
+    <script src="js/navigation.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>plotMypark | Find Parking</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- NAVBAR -->
+    <header class="top-nav">
+
+        <div class="logo">
+            plot<span>My</span>park
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn">🔔</button>
+            <button class="profile-btn">👤</button>
+        </div>
+
+    </header>
+
+
+    <main class="parking-page">
+
+        <!-- HEADER -->
+
+        <section class="parking-page-header">
+
+            <div>
+                <p class="small-text">LIVE PARKING</p>
+
+                <h1>Find Parking</h1>
+
+                <p class="page-description">
+                    Find and reserve an available parking space near you.
+                </p>
+            </div>
+
+            <div class="live-indicator">
+                <span></span> LIVE
+            </div>
+
+        </section>
+
+
+        <!-- SEARCH -->
+
+        <div class="parking-search">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="mapSearch"
+                placeholder="Search area or parking location..."
+            >
+
+        </div>
+
+
+        <!-- MAP AREA -->
+
+        <section class="map-container">
+
+            <div class="map-header">
+
+                <div>
+                    <strong>Kanpur Parking Zone</strong>
+
+                    <p>Updated just now</p>
+                </div>
+
+                <button class="location-btn">
+                    📍 My Location
+                </button>
+
+            </div>
+
+
+            <!-- FAKE MAP FOR PROTOTYPE -->
+
+            <div class="parking-map">
+
+                <!-- ROAD -->
+
+                <div class="road horizontal-road"></div>
+
+                <div class="road vertical-road"></div>
+
+
+                <!-- PARKING SPACES -->
+
+                <button
+                    class="parking-spot available-spot"
+                    data-id="P1"
+                    data-status="AVAILABLE"
+                >
+                    <strong>P1</strong>
+                    <span>AVAILABLE</span>
+                </button>
+
+
+                <button
+                    class="parking-spot occupied-spot"
+                    data-id="P2"
+                    data-status="OCCUPIED"
+                >
+                    <strong>P2</strong>
+                    <span>OCCUPIED</span>
+                </button>
+
+
+                <button
+                    class="parking-spot available-spot"
+                    data-id="P3"
+                    data-status="AVAILABLE"
+                >
+                    <strong>P3</strong>
+                    <span>AVAILABLE</span>
+                </button>
+
+
+                <button
+                    class="parking-spot reserved-spot"
+                    data-id="P4"
+                    data-status="RESERVED"
+                >
+                    <strong>P4</strong>
+                    <span>RESERVED</span>
+                </button>
+
+
+                <!-- ROAD LABELS -->
+
+                <div class="road-label road-label-one">
+                    Mall Road
+                </div>
+
+                <div class="road-label road-label-two">
+                    Parking Zone A
+                </div>
+
+            </div>
+
+
+            <!-- LEGEND -->
+
+            <div class="map-legend">
+
+                <div>
+                    <span class="legend-dot available-dot"></span>
+                    Available
+                </div>
+
+                <div>
+                    <span class="legend-dot occupied-dot"></span>
+                    Occupied
+                </div>
+
+                <div>
+                    <span class="legend-dot reserved-dot"></span>
+                    Reserved
+                </div>
+
+                <div>
+                    <span class="legend-dot blocked-dot"></span>
+                    Blocked
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SELECTED PARKING -->
+
+        <section
+            id="selectedParking"
+            class="selected-parking hidden"
+        >
+
+            <div>
+
+                <p class="small-text">SELECTED SPACE</p>
+
+                <h2 id="selectedName">Parking P1</h2>
+
+                <p id="selectedStatus">
+                    🟢 Available
+                </p>
+
+            </div>
+
+            <button
+                id="detailsButton"
+                class="primary-btn small-btn"
+            >
+                View Details
+            </button>
+
+        </section>
+
+
+        <!-- NEARBY LIST -->
+
+        <section class="nearby-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="small-text">PARKING LOCATIONS</p>
+                    <h2>Nearby Parking</h2>
+                </div>
+
+            </div>
+
+
+            <div class="parking-location-list">
+
+                <div class="location-card">
+
+                    <div>
+                        <h3>Mall Road Parking</h3>
+
+                        <p>📍 450 m away</p>
+
+                        <p>💰 ₹20/hr</p>
+                    </div>
+
+                    <div>
+                        <span class="available-badge">
+                            🟢 8 available
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="location-card">
+
+                    <div>
+                        <h3>Civil Lines Parking</h3>
+
+                        <p>📍 800 m away</p>
+
+                        <p>💰 ₹15/hr</p>
+                    </div>
+
+                    <div>
+                        <span class="available-badge">
+                            🟢 5 available
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BOTTOM NAV -->
+
+    <nav class="bottom-nav">
+
+        <button
+            class="bottom-item"
+            onclick="window.location.href='home.html'"
+        >
+            <span>⌂</span>
+            <p>Home</p>
+        </button>
+
+
+        <button class="bottom-item active">
+            <span>🅿️</span>
+            <p>Parking</p>
+        </button>
+
+
+        <button
+            class="bottom-item"
+            onclick="activateNavAndNavigate(this, 'history.html')"
+        >
+            <span>🧾</span>
+            <p>History</p>
+        </button>
+
+  class="bottom-item"
+    onclick="window.location.href='profile.html'"
+>
+    <span>👤</span>
+    <p>Profile</p>
+        </button>
+
+    </nav>
+
+
+    <script src="js/parking.js"></script>
+
+</body>
+</html>

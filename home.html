@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>plotMypark | Home</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- TOP NAVBAR -->
+    <header class="top-nav">
+
+        <div class="logo">
+            plot<span>My</span>park
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn" title="Notifications">🔔</button>
+            <button class="profile-btn" title="Profile">👤</button>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard">
+
+        <!-- GREETING -->
+        <section class="welcome-section">
+
+            <div>
+                <p class="small-text">Welcome back</p>
+
+                <h1>
+                    Good afternoon, <span id="userName">Driver</span> 👋
+                </h1>
+
+                <p class="location">
+                    📍 Kanpur, Uttar Pradesh
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- SEARCH -->
+        <section class="search-section">
+
+            <div class="search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    id="parkingSearch"
+                    placeholder="Search parking, area or location..."
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+        <section class="quick-actions">
+
+            <button class="action-card" onclick="goToParking()">
+
+                <div class="action-icon">🅿️</div>
+
+                <div>
+                    <h3>Find Parking</h3>
+                    <p>View nearby parking</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </button>
+
+
+            <button class="action-card">
+
+                <div class="action-icon">📍</div>
+
+                <div>
+                    <h3>Nearby</h3>
+                    <p>Parking around you</p>
+                </div>
+
+                <span class="arrow">→</span>
+
+            </button>
+
+        </section>
+
+
+        <!-- LIVE STATUS -->
+        <section>
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="small-text">LIVE STATUS</p>
+                    <h2>Parking availability</h2>
+                </div>
+
+                <span class="live-indicator">
+                    <span></span> LIVE
+                </span>
+
+            </div>
+
+
+            <div class="status-grid">
+
+                <div class="status-card available">
+
+                    <div class="status-icon">🟢</div>
+
+                    <div>
+                        <strong id="availableCount">12</strong>
+                        <p>Available</p>
+                    </div>
+
+                </div>
+
+
+                <div class="status-card occupied">
+
+                    <div class="status-icon">🔴</div>
+
+                    <div>
+                        <strong>18</strong>
+                        <p>Occupied</p>
+                    </div>
+
+                </div>
+
+
+                <div class="status-card reserved">
+
+                    <div class="status-icon">🔵</div>
+
+                    <div>
+                        <strong>4</strong>
+                        <p>Reserved</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SMART RECOMMENDATION -->
+        <section class="recommendation">
+
+            <div class="recommendation-header">
+
+                <div>
+                    <p class="small-text">SMART RECOMMENDATION</p>
+
+                    <h2>Best parking for you</h2>
+                </div>
+
+                <span class="ai-badge">AI</span>
+
+            </div>
+
+
+            <div class="recommendation-card">
+
+                <div class="parking-main">
+
+                    <div class="parking-icon">
+                        🅿️
+                    </div>
+
+                    <div>
+
+                        <h3>Mall Road Parking</h3>
+
+                        <p>📍 450 m away</p>
+
+                        <p>💰 ₹20 / hour</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="recommendation-score">
+
+                    <strong>92%</strong>
+
+                    <span>Match</span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="viewParkingDetails()"
+            >
+                View Parking
+            </button>
+
+        </section>
+
+
+        <!-- NEARBY PARKING -->
+        <section>
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="small-text">NEAR YOU</p>
+                    <h2>Nearby parking</h2>
+                </div>
+
+                <button
+                    class="text-btn"
+                    onclick="goToParking()"
+                >
+                    View all
+                </button>
+
+            </div>
+
+
+            <div id="parkingList" class="parking-list">
+
+                <!-- Parking cards generated by JavaScript -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+
+        <button class="bottom-item active">
+
+            <span>⌂</span>
+            <p>Home</p>
+
+        </button>
+
+
+        <button
+            class="bottom-item"
+            onclick="goToParking()"
+        >
+
+            <span>🅿️</span>
+            <p>Parking</p>
+
+        </button>
+
+
+        <button
+            class="bottom-item"
+            onclick="activateNavAndNavigate(this, 'history.html')"
+        >
+
+            <span>🧾</span>
+            <p>History</p>
+
+        </button>
+
+  class="bottom-item"
+    onclick="window.location.href='profile.html'"
+>
+    <span>👤</span>
+    <p>Profile</p>
+
+        </button>
+
+    </nav>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>

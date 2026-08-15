@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>plotMypark | Parking Details</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- NAVBAR -->
+    <header class="top-nav">
+
+        <div class="logo">
+            plot<span>My</span>park
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn">🔔</button>
+            <button class="profile-btn">👤</button>
+        </div>
+
+    </header>
+
+
+    <main class="details-page">
+
+        <!-- BACK -->
+        <button
+            class="back-btn"
+            onclick="window.location.href='parking.html'"
+        >
+            ← Back to Parking
+        </button>
+
+
+        <!-- PARKING HEADER -->
+        <section class="details-header">
+
+            <div>
+                <p class="small-text">PARKING DETAILS</p>
+
+                <h1 id="parkingTitle">
+                    Parking P1
+                </h1>
+
+                <p class="details-location">
+                    📍 Mall Road Parking Zone
+                </p>
+            </div>
+
+            <span class="status-badge">
+                🟢 AVAILABLE
+            </span>
+
+        </section>
+
+
+        <!-- MAIN DETAILS CARD -->
+        <section class="details-card">
+
+            <div class="parking-visual">
+
+                <div class="big-parking-icon">
+                    P
+                </div>
+
+                <div>
+                    <h2 id="spaceName">
+                        Parking Space P1
+                    </h2>
+
+                    <p>
+                        Individual street parking space
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- INFORMATION -->
+            <div class="parking-information">
+
+                <div class="detail-item">
+
+                    <span class="detail-icon">📏</span>
+
+                    <div>
+                        <small>Distance</small>
+                        <strong>450 m</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span class="detail-icon">💰</span>
+
+                    <div>
+                        <small>Parking Rate</small>
+                        <strong>₹20 / hour</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span class="detail-icon">⏱️</span>
+
+                    <div>
+                        <small>Estimated Arrival</small>
+                        <strong>4 min</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span class="detail-icon">📊</span>
+
+                    <div>
+                        <small>Availability Probability</small>
+                        <strong class="green-text">92%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI RECOMMENDATION -->
+            <div class="ai-recommendation">
+
+                <div class="ai-title">
+                    <span>✦</span>
+                    Smart Recommendation
+                </div>
+
+                <p>
+                    This parking space has a high probability of
+                    remaining available and is a good match based
+                    on distance and current availability.
+                </p>
+
+            </div>
+
+
+            <!-- RESERVE -->
+            <button
+                class="reserve-btn"
+                id="reserveButton"
+            >
+                Reserve This Parking
+            </button>
+
+
+            <p class="reservation-note">
+                Reservation will temporarily hold this space for you.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+
+        <button
+            class="bottom-item"
+            onclick="window.location.href='home.html'"
+        >
+            <span>⌂</span>
+            <p>Home</p>
+        </button>
+
+
+        <button
+            class="bottom-item active"
+            onclick="window.location.href='parking.html'"
+        >
+            <span>🅿️</span>
+            <p>Parking</p>
+        </button>
+
+
+        <button
+            class="bottom-item"
+            onclick="activateNavAndNavigate(this, 'history.html')"
+        >
+            <span>🧾</span>
+            <p>History</p>
+        </button>
+
+
+        <button class="bottom-item">
+            <span>👤</span>
+            <p>Profile</p>
+        </button>
+
+    </nav>
+
+
+    <script src="js/details.js"></script>
+
+</body>
+</html>

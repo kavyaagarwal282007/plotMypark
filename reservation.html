@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>plotMypark | Reservation</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- NAVBAR -->
+    <header class="top-nav">
+
+        <div class="logo">
+            plot<span>My</span>park
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn">🔔</button>
+            <button class="profile-btn">👤</button>
+        </div>
+
+    </header>
+
+
+    <main class="reservation-page">
+
+        <!-- SUCCESS HEADER -->
+
+        <section class="reservation-success">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <p class="small-text">RESERVATION CONFIRMED</p>
+
+            <h1>Your parking spot is reserved!</h1>
+
+            <p>
+                We've temporarily held this parking space for you.
+            </p>
+
+        </section>
+
+
+        <!-- RESERVATION CARD -->
+
+        <section class="reservation-card">
+
+            <div class="reservation-top">
+
+                <div>
+                    <p class="small-text">PARKING SPACE</p>
+
+                    <h2 id="reservationSpot">
+                        Parking P1
+                    </h2>
+
+                    <p class="reservation-location">
+                        📍 Mall Road Parking Zone
+                    </p>
+                </div>
+
+                <span class="reserved-badge">
+                    🔵 RESERVED
+                </span>
+
+            </div>
+
+
+            <!-- COUNTDOWN -->
+
+            <div class="timer-box">
+
+                <p>Reservation held for</p>
+
+                <div id="countdown">
+                    10:00
+                </div>
+
+                <span>
+                    Please reach the parking space before the timer expires.
+                </span>
+
+            </div>
+
+
+            <!-- BOOKING DETAILS -->
+
+            <div class="booking-details">
+
+                <div class="booking-item">
+
+                    <span>Booking ID</span>
+
+                    <strong id="bookingId">
+                        PM-000000
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-item">
+
+                    <span>Rate</span>
+
+                    <strong>
+                        ₹20 / hour
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-item">
+
+                    <span>Distance</span>
+
+                    <strong>
+                        450 m
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-item">
+
+                    <span>Status</span>
+
+                    <strong class="green-text">
+                        Reserved
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <button
+                class="navigation-btn"
+                id="navigationButton"
+            >
+                🧭 Start Navigation
+            </button>
+
+
+            <button
+                class="cancel-btn"
+                id="cancelButton"
+            >
+                Cancel Reservation
+            </button>
+
+        </section>
+
+
+        <!-- INFORMATION -->
+
+        <section class="reservation-info">
+
+            <div class="info-title">
+                💡 How it works
+            </div>
+
+            <p>
+                Your space is currently marked as RESERVED.
+                Once you arrive and park, the parking status can
+                change to OCCUPIED.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- BOTTOM NAV -->
+
+    <nav class="bottom-nav">
+
+        <button
+            class="bottom-item"
+            onclick="window.location.href='home.html'"
+        >
+            <span>⌂</span>
+            <p>Home</p>
+        </button>
+
+
+        <button
+            class="bottom-item active"
+            onclick="window.location.href='parking.html'"
+        >
+            <span>🅿️</span>
+            <p>Parking</p>
+        </button>
+
+
+        <button
+            class="bottom-item"
+            onclick="activateNavAndNavigate(this, 'history.html')"
+        >
+            <span>🧾</span>
+            <p>History</p>
+        </button>
+  class="bottom-item"
+    onclick="window.location.href='profile.html'"
+>
+    <span>👤</span>
+    <p>Profile</p>
+        </button>
+
+    </nav>
+
+
+    <script src="js/reservation.js"></script>
+
+</body>
+</html>
