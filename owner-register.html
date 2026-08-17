@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>plotMypark | List Your Space</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- NAVBAR -->
+
+    <header class="top-nav">
+
+        <div class="logo">
+            plot<span>My</span>park
+        </div>
+
+        <div class="nav-actions">
+
+            <button class="icon-btn">
+                🔔
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="owner-register-page">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="owner-page-header">
+
+            <p class="small-text">
+                PARKING OWNER
+            </p>
+
+            <h1>
+                List Your Space
+            </h1>
+
+            <p>
+                Turn your vacant land or parking space into a
+                parking opportunity.
+            </p>
+
+        </section>
+
+
+
+        <!-- FORM -->
+
+        <form
+            id="spaceForm"
+            class="space-form"
+        >
+
+
+            <!-- SPACE TYPE -->
+
+            <div class="form-section">
+
+                <h2>
+                    1. Space Information
+                </h2>
+
+                <p class="form-description">
+                    Tell us about the space you want to offer.
+                </p>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Space Type
+                    </label>
+
+                    <div class="space-type-options">
+
+                        <label class="space-option">
+
+                            <input
+                                type="radio"
+                                name="spaceType"
+                                value="existing"
+                                checked
+                            >
+
+                            <div>
+
+                                <strong>
+                                    🅿️ Existing Parking
+                                </strong>
+
+                                <span>
+                                    Already operating as a parking location
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="space-option">
+
+                            <input
+                                type="radio"
+                                name="spaceType"
+                                value="vacant"
+                            >
+
+                            <div>
+
+                                <strong>
+                                    🏗️ Vacant Land
+                                </strong>
+
+                                <span>
+                                    Temporarily offer your land for parking
+                                </span>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="spaceName">
+                        Parking / Space Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="spaceName"
+                        placeholder="e.g. Mall Road Parking"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="capacity">
+                            Vehicle Capacity
+                        </label>
+
+                        <input
+                            type="number"
+                            id="capacity"
+                            placeholder="e.g. 50"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="price">
+                            Price per Hour (₹)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="price"
+                            placeholder="e.g. 20"
+                            min="0"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LOCATION -->
+
+            <div class="form-section">
+
+                <h2>
+                    2. Location
+                </h2>
+
+                <p class="form-description">
+                    Where is your parking space located?
+                </p>
+
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Full Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        rows="3"
+                        placeholder="Enter complete address"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="e.g. Kanpur"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="pincode">
+                            PIN Code
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pincode"
+                            placeholder="e.g. 208001"
+                            maxlength="6"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="location-btn"
+                    id="locationButton"
+                >
+                    📍 Use My Current Location
+                </button>
+
+                <p
+                    id="locationStatus"
+                    class="location-status"
+                ></p>
+
+            </div>
+
+
+
+            <!-- AVAILABILITY -->
+
+            <div class="form-section">
+
+                <h2>
+                    3. Availability
+                </h2>
+
+                <p class="form-description">
+                    Set when drivers can use this space.
+                </p>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="availableFrom">
+                            Available From
+                        </label>
+
+                        <input
+                            type="datetime-local"
+                            id="availableFrom"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="availableUntil">
+                            Available Until
+                        </label>
+
+                        <input
+                            type="datetime-local"
+                            id="availableUntil"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="openingTime">
+                            Daily Opening
+                        </label>
+
+                        <input
+                            type="time"
+                            id="openingTime"
+                            value="08:00"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="closingTime">
+                            Daily Closing
+                        </label>
+
+                        <input
+                            type="time"
+                            id="closingTime"
+                            value="22:00"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-section">
+
+                <h2>
+                    4. Additional Information
+                </h2>
+
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="4"
+                        placeholder="Tell drivers about your parking space..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="photos">
+                        Space Photos
+                    </label>
+
+                    <input
+                        type="file"
+                        id="photos"
+                        accept="image/*"
+                        multiple
+                    >
+
+                    <small class="file-help">
+                        Add clear photos of the parking area.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OWNER INFORMATION -->
+
+            <div class="form-section">
+
+                <h2>
+                    5. Owner Information
+                </h2>
+
+                <p class="form-description">
+                    These details will be used for your owner account.
+                </p>
+
+
+                <div class="form-group">
+
+                    <label for="ownerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="ownerName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="ownerEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="ownerEmail"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="ownerPhone">
+                            Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="ownerPhone"
+                            placeholder="+91 XXXXX XXXXX"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TERMS -->
+
+            <div class="terms-box">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+                        I confirm that I have the right to offer
+                        this space for parking and that the
+                        information provided is accurate.
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="submit-space-btn"
+            >
+                Register My Space →
+            </button>
+
+
+        </form>
+
+    </main>
+
+
+
+    <script src="js/owner-register.js"></script>
+
+</body>
+
+</html>

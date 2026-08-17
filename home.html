@@ -1,295 +1,910 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>plotMypark | Home</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body class="dashboard-body">
 
-    <!-- TOP NAVBAR -->
+
+    <!-- =================================================
+         TOP NAVBAR
+         ================================================= -->
+
     <header class="top-nav">
 
         <div class="logo">
             plot<span>My</span>park
         </div>
 
+
         <div class="nav-actions">
-            <button class="icon-btn" title="Notifications">🔔</button>
-            <button class="profile-btn" title="Profile">👤</button>
+
+            <button
+                class="icon-btn"
+                title="Notifications"
+                onclick="showNotification()"
+            >
+                🔔
+            </button>
+
+
+            <button
+                class="profile-btn"
+                title="Profile"
+                onclick="window.location.href='profile.html'"
+            >
+                👤
+            </button>
+
         </div>
 
     </header>
 
 
-    <!-- MAIN CONTENT -->
+
+    <!-- =================================================
+         MAIN DASHBOARD
+         ================================================= -->
+
     <main class="dashboard">
 
-        <!-- GREETING -->
-        <section class="welcome-section">
 
-            <div>
-                <p class="small-text">Welcome back</p>
+        <!-- =================================================
+             WELCOME SECTION
+             ================================================= -->
+
+        <section class="welcome-section premium-welcome">
+
+            <div class="welcome-content">
+
+                <div class="welcome-tag">
+
+                    <span class="pulse-dot"></span>
+
+                    SMART PARKING
+
+                </div>
+
+
+                <p class="small-text">
+                    WELCOME BACK
+                </p>
+
 
                 <h1>
-                    Good afternoon, <span id="userName">Driver</span> 👋
+
+                    Good afternoon,
+                    <span id="userName">
+                        Driver
+                    </span>
+
+                    👋
+
                 </h1>
+
 
                 <p class="location">
                     📍 Kanpur, Uttar Pradesh
                 </p>
+
+            </div>
+
+
+            <!-- Small parking animation -->
+
+            <div class="welcome-car">
+
+                <div class="car-road">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="car-animation">
+                    🚗
+                </div>
+
+
+                <div class="parking-mark">
+                    P
+                </div>
+
             </div>
 
         </section>
 
 
-        <!-- SEARCH -->
-        <section class="search-section">
+
+        <!-- =================================================
+             SEARCH
+             ================================================= -->
+
+        <section class="search-section premium-search">
 
             <div class="search-box">
 
-                <span>🔍</span>
+                <span class="search-icon">
+                    🔍
+                </span>
+
 
                 <input
                     type="text"
                     id="parkingSearch"
-                    placeholder="Search parking, area or location..."
+                    placeholder="Where do you want to park?"
+                    autocomplete="off"
                 >
 
-            </div>
-
-        </section>
-
-
-        <!-- QUICK ACTIONS -->
-        <section class="quick-actions">
-
-            <button class="action-card" onclick="goToParking()">
-
-                <div class="action-icon">🅿️</div>
-
-                <div>
-                    <h3>Find Parking</h3>
-                    <p>View nearby parking</p>
-                </div>
-
-                <span class="arrow">→</span>
-
-            </button>
-
-
-            <button class="action-card">
-
-                <div class="action-icon">📍</div>
-
-                <div>
-                    <h3>Nearby</h3>
-                    <p>Parking around you</p>
-                </div>
-
-                <span class="arrow">→</span>
-
-            </button>
-
-        </section>
-
-
-        <!-- LIVE STATUS -->
-        <section>
-
-            <div class="section-heading">
-
-                <div>
-                    <p class="small-text">LIVE STATUS</p>
-                    <h2>Parking availability</h2>
-                </div>
-
-                <span class="live-indicator">
-                    <span></span> LIVE
-                </span>
-
-            </div>
-
-
-            <div class="status-grid">
-
-                <div class="status-card available">
-
-                    <div class="status-icon">🟢</div>
-
-                    <div>
-                        <strong id="availableCount">12</strong>
-                        <p>Available</p>
-                    </div>
-
-                </div>
-
-
-                <div class="status-card occupied">
-
-                    <div class="status-icon">🔴</div>
-
-                    <div>
-                        <strong>18</strong>
-                        <p>Occupied</p>
-                    </div>
-
-                </div>
-
-
-                <div class="status-card reserved">
-
-                    <div class="status-icon">🔵</div>
-
-                    <div>
-                        <strong>4</strong>
-                        <p>Reserved</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- SMART RECOMMENDATION -->
-        <section class="recommendation">
-
-            <div class="recommendation-header">
-
-                <div>
-                    <p class="small-text">SMART RECOMMENDATION</p>
-
-                    <h2>Best parking for you</h2>
-                </div>
-
-                <span class="ai-badge">AI</span>
-
-            </div>
-
-
-            <div class="recommendation-card">
-
-                <div class="parking-main">
-
-                    <div class="parking-icon">
-                        🅿️
-                    </div>
-
-                    <div>
-
-                        <h3>Mall Road Parking</h3>
-
-                        <p>📍 450 m away</p>
-
-                        <p>💰 ₹20 / hour</p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="recommendation-score">
-
-                    <strong>92%</strong>
-
-                    <span>Match</span>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="primary-btn"
-                onclick="viewParkingDetails()"
-            >
-                View Parking
-            </button>
-
-        </section>
-
-
-        <!-- NEARBY PARKING -->
-        <section>
-
-            <div class="section-heading">
-
-                <div>
-                    <p class="small-text">NEAR YOU</p>
-                    <h2>Nearby parking</h2>
-                </div>
 
                 <button
-                    class="text-btn"
+                    class="search-action"
                     onclick="goToParking()"
+                    title="Find parking"
                 >
-                    View all
+                    →
                 </button>
 
             </div>
 
 
-            <div id="parkingList" class="parking-list">
+            <p class="search-hint">
 
-                <!-- Parking cards generated by JavaScript -->
+                Try
+                <strong>Mall Road</strong>,
+                <strong>near me</strong>
+                or a location
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+             ================================================= -->
+
+        <section class="quick-actions premium-actions">
+
+
+            <!-- FIND PARKING -->
+
+            <button
+                class="action-card find-action"
+                onclick="goToParking()"
+            >
+
+                <div class="action-card-top">
+
+                    <div class="action-icon">
+                        🅿️
+                    </div>
+
+
+                    <span class="action-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+
+                <div class="action-card-content">
+
+                    <h3>
+                        Find Parking
+                    </h3>
+
+
+                    <p>
+                        Discover available spots near you
+                    </p>
+
+                </div>
+
+            </button>
+
+
+
+            <!-- PARKING NEAR ME -->
+
+            <button
+                class="action-card nearby-action"
+                onclick="goToParking()"
+            >
+
+                <div class="action-card-top">
+
+                    <div class="action-icon">
+                        📍
+                    </div>
+
+
+                    <span class="action-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+
+                <div class="action-card-content">
+
+                    <h3>
+                        Parking Near Me
+                    </h3>
+
+
+                    <p>
+                        Find the closest open space
+                    </p>
+
+                </div>
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LIVE PARKING STATUS
+             ================================================= -->
+
+        <section>
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="small-text">
+                        LIVE STATUS
+                    </p>
+
+
+                    <h2>
+                        Parking availability
+                    </h2>
+
+                </div>
+
+
+                <span class="live-indicator">
+
+                    <span></span>
+
+                    LIVE
+
+                </span>
+
+            </div>
+
+
+
+            <!-- COMPACT STATUS CARDS -->
+
+            <div class="compact-status-grid">
+
+
+                <!-- AVAILABLE -->
+
+                <div
+                    class="compact-status-card available-card"
+                >
+
+                    <div class="compact-status-icon">
+                        🅿️
+                    </div>
+
+
+                    <div class="compact-status-content">
+
+                        <strong
+                            id="availableCount"
+                            class="compact-status-number parking-counter"
+                            data-target="12"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="compact-status-label">
+                            Available
+                        </span>
+
+                    </div>
+
+
+                    <div class="compact-live">
+
+                        <span class="compact-live-dot"></span>
+
+                        LIVE
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- OCCUPIED -->
+
+                <div
+                    class="compact-status-card occupied-card"
+                >
+
+                    <div class="compact-status-icon">
+                        🚗
+                    </div>
+
+
+                    <div class="compact-status-content">
+
+                        <strong
+                            class="compact-status-number parking-counter"
+                            data-target="18"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="compact-status-label">
+                            Occupied
+                        </span>
+
+                    </div>
+
+
+                    <div class="compact-live">
+
+                        <span class="compact-live-dot"></span>
+
+                        LIVE
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RESERVED -->
+
+                <div
+                    class="compact-status-card reserved-card"
+                >
+
+                    <div class="compact-status-icon">
+                        🎟️
+                    </div>
+
+
+                    <div class="compact-status-content">
+
+                        <strong
+                            class="compact-status-number parking-counter"
+                            data-target="4"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="compact-status-label">
+                            Reserved
+                        </span>
+
+                    </div>
+
+
+                    <div class="compact-live">
+
+                        <span class="compact-live-dot"></span>
+
+                        LIVE
+
+                    </div>
+
+                </div>
 
             </div>
 
         </section>
 
+
+
+        <!-- =================================================
+             AI RECOMMENDATION
+             ================================================= -->
+
+        <section class="recommendation premium-recommendation">
+
+
+            <div class="recommendation-header">
+
+                <div>
+
+                    <p class="small-text">
+                        SMART RECOMMENDATION
+                    </p>
+
+
+                    <h2>
+                        Best spot for you
+                    </h2>
+
+                </div>
+
+
+                <span class="ai-badge">
+                    ✦ AI PICK
+                </span>
+
+            </div>
+
+
+
+            <!-- RECOMMENDATION CARD -->
+
+            <div class="recommendation-card">
+
+
+                <!-- MINI MAP -->
+
+                <div class="recommendation-map">
+
+                    <div class="map-road road-one"></div>
+
+                    <div class="map-road road-two"></div>
+
+
+                    <div class="map-pin main-pin">
+                        🅿️
+                    </div>
+
+
+                    <div class="map-pulse"></div>
+
+                </div>
+
+
+
+                <!-- INFORMATION -->
+
+                <div class="recommendation-info">
+
+
+                    <div class="parking-title-row">
+
+                        <div>
+
+                            <h3>
+                                Mall Road Parking
+                            </h3>
+
+
+                            <p class="parking-location">
+                                📍 Mall Road · 450 m away
+                            </p>
+
+                        </div>
+
+
+                        <span class="match-score">
+
+                            92%
+
+                            <small>
+                                match
+                            </small>
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="parking-meta">
+
+                        <span>
+                            🟢 8 spots
+                        </span>
+
+
+                        <span>
+                            💰 ₹20/hr
+                        </span>
+
+
+                        <span>
+                            ⚡ 3 min
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="ai-reason">
+
+                        <span>
+                            ✦
+                        </span>
+
+
+                        <p>
+
+                            Recommended because it's close,
+                            affordable and currently has
+                            high availability.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <button
+                class="primary-btn recommendation-btn"
+                onclick="viewParkingDetails()"
+            >
+
+                View Parking
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             NEARBY PARKING
+             ================================================= -->
+
+        <section class="nearby-section">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="small-text">
+                        NEAR YOU
+                    </p>
+
+
+                    <h2>
+                        Nearby parking
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="text-btn"
+                    onclick="goToParking()"
+                >
+                    View all →
+                </button>
+
+            </div>
+
+
+            <div
+                id="parkingList"
+                class="parking-list"
+            >
+
+                <!--
+                    Parking cards will be
+                    generated by app.js
+                -->
+
+            </div>
+
+        </section>
+
+
     </main>
 
 
-    <!-- BOTTOM NAVIGATION -->
+
+    <!-- =================================================
+         BOTTOM NAVIGATION
+         ================================================= -->
+
     <nav class="bottom-nav">
 
-        <button class="bottom-item active">
 
-            <span>⌂</span>
-            <p>Home</p>
+        <!-- HOME -->
+
+        <button
+            class="bottom-item active"
+            onclick="window.location.href='home.html'"
+        >
+
+            <span>
+                🏠
+            </span>
+
+            <p>
+                Home
+            </p>
 
         </button>
 
+
+
+        <!-- PARKING -->
 
         <button
             class="bottom-item"
             onclick="goToParking()"
         >
 
-            <span>🅿️</span>
-            <p>Parking</p>
+            <span>
+                🅿️
+            </span>
+
+            <p>
+                Parking
+            </p>
 
         </button>
 
+
+
+        <!-- HISTORY -->
 
         <button
             class="bottom-item"
-            onclick="activateNavAndNavigate(this, 'history.html')"
+            onclick="window.location.href='history.html'"
         >
 
-            <span>🧾</span>
-            <p>History</p>
+            <span>
+                🧾
+            </span>
+
+            <p>
+                History
+            </p>
 
         </button>
 
-  class="bottom-item"
-    onclick="window.location.href='profile.html'"
->
-    <span>👤</span>
-    <p>Profile</p>
+
+
+        <!-- PROFILE -->
+
+        <button
+            class="bottom-item"
+            onclick="window.location.href='profile.html'"
+        >
+
+            <span>
+                👤
+            </span>
+
+            <p>
+                Profile
+            </p>
 
         </button>
+
 
     </nav>
 
 
+
+    <!-- =================================================
+         APP JAVASCRIPT
+         ================================================= -->
+
     <script src="js/app.js"></script>
 
+
+
+    <!-- =================================================
+         NOTIFICATION
+         ================================================= -->
+
+    <script>
+
+        function showNotification() {
+
+            alert(
+                "🔔 You're all caught up! No new notifications."
+            );
+
+        }
+
+    </script>
+
+
+
+    <!-- =================================================
+         SEARCH ENTER
+         ================================================= -->
+
+    <script>
+
+        const searchInput =
+            document.getElementById(
+                "parkingSearch"
+            );
+
+
+        if (searchInput) {
+
+            searchInput.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (event.key === "Enter") {
+
+                        goToParking();
+
+                    }
+
+                }
+            );
+
+        }
+
+    </script>
+
+
+
+    <!-- =================================================
+         PARKING COUNTER ANIMATION
+         ================================================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const counters =
+                    document.querySelectorAll(
+                        ".parking-counter"
+                    );
+
+
+                counters.forEach(
+                    function (counter) {
+
+                        const target =
+                            Number(
+                                counter.dataset.target
+                            );
+
+
+                        let current = 0;
+
+
+                        const step =
+                            Math.max(
+                                1,
+                                Math.ceil(
+                                    target / 12
+                                )
+                            );
+
+
+                        const timer =
+                            setInterval(
+                                function () {
+
+                                    current += step;
+
+
+                                    if (
+                                        current >= target
+                                    ) {
+
+                                        current =
+                                            target;
+
+                                        clearInterval(
+                                            timer
+                                        );
+
+                                    }
+
+
+                                    counter.textContent =
+                                        current;
+
+                                },
+                                45
+                            );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+
+    <!-- =================================================
+         SOFT GREEN CLICK EFFECT
+         ================================================= -->
+
+    <script>
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+
+                const card =
+                    event.target.closest(
+                        ".compact-status-card, " +
+                        ".action-card, " +
+                        ".recommendation-card"
+                    );
+
+
+                if (!card) return;
+
+
+                card.classList.remove(
+                    "dashboard-clicked"
+                );
+
+
+                void card.offsetWidth;
+
+
+                card.classList.add(
+                    "dashboard-clicked"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        card.classList.remove(
+                            "dashboard-clicked"
+                        );
+
+                    },
+                    600
+                );
+
+            }
+        );
+
+    </script>
+
+
 </body>
+
 </html>

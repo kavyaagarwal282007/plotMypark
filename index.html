@@ -1,127 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>plotMypark | Smart Parking</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
 </head>
+
 
 <body>
 
-    <div class="login-container">
 
-        <!-- Left Section -->
-        <div class="brand-section">
+    <!-- =================================================
+         INTRO SPLASH
+         ================================================= -->
 
-            <div class="logo">
+    <div
+        class="intro-splash"
+        id="introSplash"
+    >
+
+        <div class="intro-content">
+
+            <div class="intro-logo">
                 plot<span>My</span>park
             </div>
 
-            <div class="brand-content">
-                <h1>Find your spot.<br>Park smarter.</h1>
 
-                <p>
-                    Discover available parking spaces,
-                    reserve your spot and reach your destination
-                    without the parking hassle.
-                </p>
+            <div class="intro-tagline">
+                Smart parking. Simple journeys.
             </div>
 
-            <div class="parking-info">
-                <div class="info-card">
-                    <strong>120+</strong>
-                    <span>Parking Spots</span>
-                </div>
 
-                <div class="info-card">
-                    <strong>24/7</strong>
-                    <span>Live Availability</span>
-                </div>
+            <div class="intro-loader">
 
-                <div class="info-card">
-                    <strong>Smart</strong>
-                    <span>Recommendations</span>
-                </div>
-            </div>
+                <div class="loader-track">
 
-        </div>
+                    <div class="loader-fill"></div>
 
-
-        <!-- Login Section -->
-        <div class="login-section">
-
-            <div class="login-box">
-
-                <h2>Welcome back</h2>
-
-                <p class="login-subtitle">
-                    Login to continue to plotMypark
-                </p>
-
-                <form id="loginForm">
-
-                    <div class="input-group">
-                        <label for="email">Email or Mobile Number</label>
-
-                        <input
-                            type="text"
-                            id="email"
-                            placeholder="Enter your email or mobile"
-                            required
-                        >
-                    </div>
-
-
-                    <div class="input-group">
-
-                        <label for="password">Password</label>
-
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter your password"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="login-options">
-
-                        <label class="remember">
-                            <input type="checkbox">
-                            Remember me
-                        </label>
-
-                        <a href="#">Forgot Password?</a>
-
-                    </div>
-
-
-                    <button type="submit" class="login-btn">
-                        Login
-                    </button>
-
-                </form>
-
-
-                <div class="divider">
-                    <span>or</span>
                 </div>
 
 
-                <button class="demo-btn" id="demoLogin">
-                    Continue as Demo User
-                </button>
-
-
-                <p class="register-text">
-                    Don't have an account?
-                    <a href="register.html">Create account</a>
-                </p>
+                <span>
+                    Finding smarter ways to park...
+                </span>
 
             </div>
 
@@ -130,7 +64,385 @@
     </div>
 
 
+
+    <!-- =================================================
+         TOP NAVIGATION
+         ================================================= -->
+
+    <header class="landing-nav">
+
+        <div class="brand">
+            plot<span>My</span>park
+        </div>
+
+
+        <div class="nav-status">
+
+            <span class="status-dot"></span>
+
+            Parking made simple
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         MAIN LANDING PAGE
+         ================================================= -->
+
+    <main class="landing-page">
+
+
+        <!-- =================================================
+             LEFT HERO SECTION
+             ================================================= -->
+
+        <section class="hero-section">
+
+
+            <div class="hero-label">
+
+                <span>
+                    SMART PARKING
+                </span>
+
+            </div>
+
+
+            <h1>
+
+                Find your spot.
+
+                <br>
+
+                <span>
+                    Park smarter.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Discover nearby parking spaces,
+                check live availability and reserve
+                your spot before you reach your
+                destination.
+
+            </p>
+
+
+
+        <!-- =================================================
+             RIGHT LOGIN SECTION
+             ================================================= -->
+
+        <section class="login-section">
+
+
+            <div class="login-card">
+
+
+                <!-- LOGIN HEADING -->
+
+                <div class="login-heading">
+
+                    <span class="welcome-small">
+                        WELCOME BACK
+                    </span>
+
+
+                    <h2>
+                        Let's get you parked.
+                    </h2>
+
+
+                    <p>
+                        Login to continue to plotMypark.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LOGIN FORM
+                     ================================================= -->
+
+                <form id="loginForm">
+
+
+                    <!-- EMAIL / MOBILE -->
+
+                    <div class="input-group">
+
+                        <label for="email">
+
+                            Email or Mobile Number
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                ✉
+                            </span>
+
+
+                            <input
+                                type="text"
+                                id="email"
+                                placeholder="Enter your email or mobile"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label for="password">
+
+                            Password
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span>
+                                ●
+                            </span>
+
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- LOGIN OPTIONS -->
+
+                    <div class="login-options">
+
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                            >
+
+                            Remember me
+
+                        </label>
+
+
+                        <a href="#">
+                            Forgot password?
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="login-btn"
+                    >
+
+                        Login
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- =================================================
+                     DIVIDER
+                     ================================================= -->
+
+                <div class="divider">
+
+                    <span></span>
+
+                    <p>
+                        or
+                    </p>
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     DEMO USER
+                     ================================================= -->
+
+                <button
+                    class="demo-btn"
+                    id="demoLogin"
+                    type="button"
+                >
+
+                    <span>
+                        🚗
+                    </span>
+
+                    Continue as Demo User
+
+                </button>
+
+
+
+                <!-- =================================================
+                     PARKING OWNER
+                     ================================================= -->
+
+                <div class="owner-entry">
+
+
+                    <div>
+
+                        <strong>
+                            Have a parking space?
+                        </strong>
+
+
+                        <small>
+                            List it and earn from unused space.
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        onclick="window.location.href='owner-register.html'"
+                    >
+
+                        🅿️ Owner
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     REGISTER
+                     ================================================= -->
+
+                <p class="register-text">
+
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Create account
+                    </a>
+
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================================
+         FOOTER
+         ================================================= -->
+
+    <footer class="landing-footer">
+
+
+        <span>
+            © 2026 plotMypark
+        </span>
+
+
+        <span>
+            Smart parking for smarter cities.
+        </span>
+
+
+    </footer>
+
+
+
+    <!-- =================================================
+         EXISTING AUTHENTICATION
+         DO NOT REMOVE
+         ================================================= -->
+
     <script src="js/auth.js"></script>
 
+
+
+    <!-- =================================================
+         INTRO TRANSITION
+         ================================================= -->
+
+    <script>
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                const splash =
+                    document.getElementById(
+                        "introSplash"
+                    );
+
+
+                setTimeout(
+                    function () {
+
+                        splash.classList.add(
+                            "intro-finished"
+                        );
+
+                    },
+                    1900
+                );
+
+            }
+        );
+
+    </script>
+
+
+
 </body>
+
 </html>

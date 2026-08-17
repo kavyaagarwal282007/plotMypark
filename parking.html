@@ -1,146 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>plotMypark | Find Parking</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body class="dashboard-body">
 
-    <!-- NAVBAR -->
+
+    <!-- =================================================
+         TOP NAVBAR
+         ================================================= -->
+
     <header class="top-nav">
 
         <div class="logo">
             plot<span>My</span>park
         </div>
 
+
         <div class="nav-actions">
-            <button class="icon-btn">🔔</button>
-            <button class="profile-btn">👤</button>
+
+            <button
+                class="icon-btn"
+                title="Notifications"
+                onclick="showParkingNotification()"
+            >
+                🔔
+            </button>
+
+
+            <button
+                class="profile-btn"
+                title="Profile"
+                onclick="window.location.href='profile.html'"
+            >
+                👤
+            </button>
+
         </div>
 
     </header>
 
 
+
+    <!-- =================================================
+         MAIN PARKING PAGE
+         ================================================= -->
+
     <main class="parking-page">
 
-        <!-- HEADER -->
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
 
         <section class="parking-page-header">
 
             <div>
-                <p class="small-text">LIVE PARKING</p>
 
-                <h1>Find Parking</h1>
+                <p class="small-text">
+                    LIVE PARKING
+                </p>
+
+
+                <h1>
+                    Find Parking
+                </h1>
+
 
                 <p class="page-description">
-                    Find and reserve an available parking space near you.
+                    Find and reserve an available parking
+                    space near you.
                 </p>
+
             </div>
 
+
             <div class="live-indicator">
-                <span></span> LIVE
+
+                <span></span>
+
+                LIVE
+
             </div>
 
         </section>
 
 
-        <!-- SEARCH -->
 
-        <div class="parking-search">
+        <!-- =================================================
+             SEARCH
+             ================================================= -->
 
-            <span>🔍</span>
+        <section class="parking-search">
+
+            <span>
+                🔍
+            </span>
+
 
             <input
                 type="text"
                 id="mapSearch"
                 placeholder="Search area or parking location..."
+                autocomplete="off"
             >
 
-        </div>
+        </section>
 
 
-        <!-- MAP AREA -->
+
+        <!-- =================================================
+             PARKING MAP
+             ================================================= -->
 
         <section class="map-container">
+
+
+            <!-- MAP HEADER -->
 
             <div class="map-header">
 
                 <div>
-                    <strong>Kanpur Parking Zone</strong>
 
-                    <p>Updated just now</p>
+                    <strong>
+                        Kanpur Parking Zone
+                    </strong>
+
+
+                    <p>
+                        Updated just now
+                    </p>
+
                 </div>
 
-                <button class="location-btn">
+
+                <button
+                    class="location-btn"
+                    type="button"
+                >
                     📍 My Location
                 </button>
 
             </div>
 
 
-            <!-- FAKE MAP FOR PROTOTYPE -->
+
+            <!-- =================================================
+                 MAP
+                 ================================================= -->
 
             <div class="parking-map">
 
-                <!-- ROAD -->
+
+                <!-- ROADS -->
 
                 <div class="road horizontal-road"></div>
 
                 <div class="road vertical-road"></div>
 
 
-                <!-- PARKING SPACES -->
+
+                <!-- PARKING SPACE P1 -->
 
                 <button
+                    type="button"
                     class="parking-spot available-spot"
                     data-id="P1"
                     data-status="AVAILABLE"
                 >
-                    <strong>P1</strong>
-                    <span>AVAILABLE</span>
+
+                    <strong>
+                        P1
+                    </strong>
+
+                    <span>
+                        AVAILABLE
+                    </span>
+
                 </button>
 
 
+
+                <!-- PARKING SPACE P2 -->
+
                 <button
+                    type="button"
                     class="parking-spot occupied-spot"
                     data-id="P2"
                     data-status="OCCUPIED"
                 >
-                    <strong>P2</strong>
-                    <span>OCCUPIED</span>
+
+                    <strong>
+                        P2
+                    </strong>
+
+                    <span>
+                        OCCUPIED
+                    </span>
+
                 </button>
 
 
+
+                <!-- PARKING SPACE P3 -->
+
                 <button
+                    type="button"
                     class="parking-spot available-spot"
                     data-id="P3"
                     data-status="AVAILABLE"
                 >
-                    <strong>P3</strong>
-                    <span>AVAILABLE</span>
+
+                    <strong>
+                        P3
+                    </strong>
+
+                    <span>
+                        AVAILABLE
+                    </span>
+
                 </button>
 
 
+
+                <!-- PARKING SPACE P4 -->
+
                 <button
+                    type="button"
                     class="parking-spot reserved-spot"
                     data-id="P4"
                     data-status="RESERVED"
                 >
-                    <strong>P4</strong>
-                    <span>RESERVED</span>
+
+                    <strong>
+                        P4
+                    </strong>
+
+                    <span>
+                        RESERVED
+                    </span>
+
                 </button>
 
 
-                <!-- ROAD LABELS -->
+
+                <!-- MAP LABELS -->
 
                 <div class="road-label road-label-one">
                     Mall Road
                 </div>
+
 
                 <div class="road-label road-label-two">
                     Parking Zone A
@@ -149,28 +275,54 @@
             </div>
 
 
-            <!-- LEGEND -->
+
+            <!-- =================================================
+                 MAP LEGEND
+                 ================================================= -->
 
             <div class="map-legend">
 
                 <div>
-                    <span class="legend-dot available-dot"></span>
+
+                    <span
+                        class="legend-dot available-dot"
+                    ></span>
+
                     Available
+
                 </div>
 
+
                 <div>
-                    <span class="legend-dot occupied-dot"></span>
+
+                    <span
+                        class="legend-dot occupied-dot"
+                    ></span>
+
                     Occupied
+
                 </div>
 
+
                 <div>
-                    <span class="legend-dot reserved-dot"></span>
+
+                    <span
+                        class="legend-dot reserved-dot"
+                    ></span>
+
                     Reserved
+
                 </div>
 
+
                 <div>
-                    <span class="legend-dot blocked-dot"></span>
+
+                    <span
+                        class="legend-dot blocked-dot"
+                    ></span>
+
                     Blocked
+
                 </div>
 
             </div>
@@ -178,7 +330,10 @@
         </section>
 
 
-        <!-- SELECTED PARKING -->
+
+        <!-- =================================================
+             SELECTED PARKING
+             ================================================= -->
 
         <section
             id="selectedParking"
@@ -187,9 +342,15 @@
 
             <div>
 
-                <p class="small-text">SELECTED SPACE</p>
+                <p class="small-text">
+                    SELECTED SPACE
+                </p>
 
-                <h2 id="selectedName">Parking P1</h2>
+
+                <h2 id="selectedName">
+                    Parking P1
+                </h2>
+
 
                 <p id="selectedStatus">
                     🟢 Available
@@ -197,65 +358,118 @@
 
             </div>
 
+
             <button
                 id="detailsButton"
                 class="primary-btn small-btn"
+                type="button"
             >
+
                 View Details
+
+                <span>
+                    →
+                </span>
+
             </button>
 
         </section>
 
 
-        <!-- NEARBY LIST -->
+
+        <!-- =================================================
+             NEARBY PARKING
+             ================================================= -->
 
         <section class="nearby-section">
+
 
             <div class="section-heading">
 
                 <div>
-                    <p class="small-text">PARKING LOCATIONS</p>
-                    <h2>Nearby Parking</h2>
+
+                    <p class="small-text">
+                        PARKING LOCATIONS
+                    </p>
+
+
+                    <h2>
+                        Nearby Parking
+                    </h2>
+
                 </div>
 
             </div>
 
 
+
             <div class="parking-location-list">
+
+
+                <!-- MALL ROAD -->
 
                 <div class="location-card">
 
                     <div>
-                        <h3>Mall Road Parking</h3>
 
-                        <p>📍 450 m away</p>
+                        <h3>
+                            Mall Road Parking
+                        </h3>
 
-                        <p>💰 ₹20/hr</p>
+
+                        <p>
+                            📍 450 m away
+                        </p>
+
+
+                        <p>
+                            💰 ₹20/hr
+                        </p>
+
                     </div>
 
+
                     <div>
+
                         <span class="available-badge">
                             🟢 8 available
                         </span>
+
                     </div>
 
                 </div>
 
 
+
+                <!-- CIVIL LINES -->
+
                 <div class="location-card">
 
                     <div>
-                        <h3>Civil Lines Parking</h3>
 
-                        <p>📍 800 m away</p>
+                        <h3>
+                            Civil Lines Parking
+                        </h3>
 
-                        <p>💰 ₹15/hr</p>
+
+                        <p>
+                            📍 800 m away
+                        </p>
+
+
+                        <p>
+                            💰 ₹15/hr
+                        </p>
+
                     </div>
 
+
                     <div>
+
                         <span class="available-badge">
                             🟢 5 available
                         </span>
+
                     </div>
 
                 </div>
@@ -264,47 +478,124 @@
 
         </section>
 
+
     </main>
 
 
-    <!-- BOTTOM NAV -->
+
+    <!-- =================================================
+         BOTTOM NAVIGATION
+         ================================================= -->
 
     <nav class="bottom-nav">
 
+
+        <!-- HOME -->
+
         <button
             class="bottom-item"
+            type="button"
             onclick="window.location.href='home.html'"
         >
-            <span>⌂</span>
-            <p>Home</p>
+
+            <span>
+                🏠
+            </span>
+
+            <p>
+                Home
+            </p>
+
         </button>
 
 
-        <button class="bottom-item active">
-            <span>🅿️</span>
-            <p>Parking</p>
+
+        <!-- PARKING -->
+
+        <button
+            class="bottom-item active"
+            type="button"
+        >
+
+            <span>
+                🅿️
+            </span>
+
+            <p>
+                Parking
+            </p>
+
         </button>
 
+
+
+        <!-- HISTORY -->
 
         <button
             class="bottom-item"
-            onclick="activateNavAndNavigate(this, 'history.html')"
+            type="button"
+            onclick="window.location.href='history.html'"
         >
-            <span>🧾</span>
-            <p>History</p>
+
+            <span>
+                🧾
+            </span>
+
+            <p>
+                History
+            </p>
+
         </button>
 
-  class="bottom-item"
-    onclick="window.location.href='profile.html'"
->
-    <span>👤</span>
-    <p>Profile</p>
+
+
+        <!-- PROFILE -->
+
+        <button
+            class="bottom-item"
+            type="button"
+            onclick="window.location.href='profile.html'"
+        >
+
+            <span>
+                👤
+            </span>
+
+            <p>
+                Profile
+            </p>
+
         </button>
 
     </nav>
 
 
+
+    <!-- =================================================
+         PARKING JAVASCRIPT
+         ================================================= -->
+
     <script src="js/parking.js"></script>
 
+
+
+    <!-- =================================================
+         NOTIFICATION
+         ================================================= -->
+
+    <script>
+
+        function showParkingNotification() {
+
+            alert(
+                "🔔 You're all caught up! No new notifications."
+            );
+
+        }
+
+    </script>
+
+
 </body>
+
 </html>

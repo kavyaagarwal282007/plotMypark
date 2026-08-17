@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>plotMypark | Owner Profile</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- TOP NAVBAR -->
+
+    <header class="top-nav">
+
+        <div class="logo">
+            plot<span>My</span>park
+        </div>
+
+        <div class="nav-actions">
+
+            <button class="icon-btn">
+                🔔
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="owner-profile-page">
+
+
+        <!-- PROFILE HEADER -->
+
+        <section class="profile-header-card">
+
+            <div class="owner-avatar">
+                👤
+            </div>
+
+            <div>
+
+                <p class="small-text">
+                    PARKING OWNER
+                </p>
+
+                <h1 id="profileName">
+                    Parking Owner
+                </h1>
+
+                <p id="profileEmail">
+                    owner@example.com
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PERSONAL INFORMATION -->
+
+        <section class="profile-card">
+
+            <div class="profile-card-heading">
+
+                <div>
+
+                    <p class="small-text">
+                        ACCOUNT
+                    </p>
+
+                    <h2>
+                        Personal Information
+                    </h2>
+
+                </div>
+
+                <button
+                    id="editProfileBtn"
+                    class="edit-profile-btn"
+                >
+                    Edit
+                </button>
+
+            </div>
+
+
+            <div class="profile-fields">
+
+
+                <div class="profile-field">
+
+                    <label for="nameInput">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nameInput"
+                        disabled
+                    >
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label for="emailInput">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="emailInput"
+                        disabled
+                    >
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label for="phoneInput">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phoneInput"
+                        disabled
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <div
+                id="profileActions"
+                class="profile-actions"
+            >
+
+                <button
+                    id="cancelEditBtn"
+                    class="cancel-profile-btn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    id="saveProfileBtn"
+                    class="save-profile-btn"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- REGISTERED PARKING SPACE -->
+
+        <section class="profile-card">
+
+            <div class="profile-card-heading">
+
+                <div>
+
+                    <p class="small-text">
+                        MY PARKING
+                    </p>
+
+                    <h2>
+                        Registered Space
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div id="profileSpace">
+
+                <!-- JavaScript will load parking information here -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ACCOUNT SETTINGS -->
+
+        <section class="profile-card">
+
+            <p class="small-text">
+                SETTINGS
+            </p>
+
+            <h2>
+                Account Options
+            </h2>
+
+
+            <button class="profile-option">
+
+                <span>
+                    🔔
+                </span>
+
+                <div>
+
+                    <strong>
+                        Notifications
+                    </strong>
+
+                    <small>
+                        Manage booking notifications
+                    </small>
+
+                </div>
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+            <button class="profile-option">
+
+                <span>
+                    🔒
+                </span>
+
+                <div>
+
+                    <strong>
+                        Privacy & Security
+                    </strong>
+
+                    <small>
+                        Manage your account security
+                    </small>
+
+                </div>
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="profile-option"
+                onclick="alert('Help & Support coming soon.')"
+            >
+
+                <span>
+                    ❓
+                </span>
+
+                <div>
+
+                    <strong>
+                        Help & Support
+                    </strong>
+
+                    <small>
+                        Get help with plotMypark
+                    </small>
+
+                </div>
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </section>
+
+
+
+        <!-- LOGOUT -->
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+        >
+            🚪 Log Out
+        </button>
+
+
+        <p
+            id="profileMessage"
+            class="profile-message"
+        ></p>
+
+
+    </main>
+
+
+
+    <!-- OWNER BOTTOM NAVIGATION -->
+
+    <nav class="owner-bottom-nav">
+
+
+        <button
+            class="owner-nav-item"
+            onclick="window.location.href='owner-dashboard.html'"
+        >
+
+            <span>
+                ⌂
+            </span>
+
+            <p>
+                Dashboard
+            </p>
+
+        </button>
+
+
+        <button
+            class="owner-nav-item"
+            onclick="window.location.href='owner-register.html'"
+        >
+
+            <span>
+                ➕
+            </span>
+
+            <p>
+                Add Space
+            </p>
+
+        </button>
+
+
+        <button
+            class="owner-nav-item"
+            onclick="window.location.href='owner-bookings.html'"
+        >
+
+            <span>
+                📋
+            </span>
+
+            <p>
+                Bookings
+            </p>
+
+        </button>
+
+
+        <button
+            class="owner-nav-item active"
+        >
+
+            <span>
+                👤
+            </span>
+
+            <p>
+                Profile
+            </p>
+
+        </button>
+
+
+    </nav>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/owner-profile.js"></script>
+
+</body>
+
+</html>

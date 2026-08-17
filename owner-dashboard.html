@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>plotMypark | Owner Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- TOP NAVBAR -->
+
+    <header class="top-nav">
+
+        <div class="logo">
+            plot<span>My</span>park
+        </div>
+
+        <div class="nav-actions">
+
+            <button class="icon-btn">
+                🔔
+            </button>
+
+            <button
+                class="profile-btn"
+                onclick="window.location.href='owner-profile.html'"
+            >
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="owner-dashboard">
+
+        <!-- WELCOME -->
+
+        <section class="owner-welcome">
+
+            <div>
+
+                <p class="small-text">
+                    OWNER DASHBOARD
+                </p>
+
+                <h1 id="welcomeName">
+                    Welcome back
+                </h1>
+
+                <p>
+                    Manage your parking space and bookings.
+                </p>
+
+            </div>
+
+            <button
+                class="add-space-btn"
+                onclick="window.location.href='owner-register.html'"
+            >
+                + List New Space
+            </button>
+
+        </section>
+
+
+        <!-- STATS -->
+
+        <section class="owner-stats">
+
+            <div class="owner-stat-card">
+
+                <span class="stat-icon">
+                    🅿️
+                </span>
+
+                <div>
+                    <small>My Spaces</small>
+                    <strong id="spaceCount">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="owner-stat-card">
+
+                <span class="stat-icon">
+                    🚗
+                </span>
+
+                <div>
+                    <small>Available Spots</small>
+                    <strong id="availableSpots">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="owner-stat-card">
+
+                <span class="stat-icon">
+                    📋
+                </span>
+
+                <div>
+                    <small>Today's Bookings</small>
+                    <strong id="bookingCount">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="owner-stat-card">
+
+                <span class="stat-icon">
+                    💰
+                </span>
+
+                <div>
+                    <small>Today's Earnings</small>
+                    <strong id="earnings">₹0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PARKING SPACE -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="small-text">
+                        MY PARKING SPACES
+                    </p>
+
+                    <h2>
+                        Manage your spaces
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div id="spaceContainer">
+
+                <!-- SPACE CARD WILL BE CREATED BY JS -->
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <section class="dashboard-section">
+
+            <p class="small-text">
+                QUICK ACTIONS
+            </p>
+
+            <div class="quick-actions">
+
+                <button
+                    onclick="window.location.href='owner-register.html'"
+                    class="quick-action"
+                >
+                    <span>➕</span>
+
+                    <div>
+                        <strong>
+                            List New Space
+                        </strong>
+
+                        <small>
+                            Add another parking location
+                        </small>
+                    </div>
+                </button>
+
+
+                <button
+                    onclick="window.location.href='owner-bookings.html'"
+                    class="quick-action"
+                >
+                    <span>📋</span>
+
+                    <div>
+                        <strong>
+                            View Bookings
+                        </strong>
+
+                        <small>
+                            Manage driver reservations
+                        </small>
+                    </div>
+                </button>
+
+
+                <button
+                    onclick="window.location.href='owner-profile.html'"
+                    class="quick-action"
+                >
+                    <span>👤</span>
+
+                    <div>
+                        <strong>
+                            Owner Profile
+                        </strong>
+
+                        <small>
+                            Manage your account
+                        </small>
+                    </div>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT BOOKINGS -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="small-text">
+                        RECENT ACTIVITY
+                    </p>
+
+                    <h2>
+                        Recent Bookings
+                    </h2>
+
+                </div>
+
+                <button
+                    class="view-all-btn"
+                    onclick="window.location.href='owner-bookings.html'"
+                >
+                    View all →
+                </button>
+
+            </div>
+
+
+            <div id="recentBookings">
+
+                <div class="empty-bookings">
+
+                    <span>
+                        📋
+                    </span>
+
+                    <p>
+                        No bookings yet
+                    </p>
+
+                    <small>
+                        Bookings will appear here when drivers reserve your space.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- OWNER BOTTOM NAVIGATION -->
+
+    <nav class="owner-bottom-nav">
+
+        <button class="owner-nav-item active">
+
+            <span>⌂</span>
+
+            <p>
+                Dashboard
+            </p>
+
+        </button>
+
+
+        <button
+            class="owner-nav-item"
+            onclick="window.location.href='owner-register.html'"
+        >
+
+            <span>➕</span>
+
+            <p>
+                Add Space
+            </p>
+
+        </button>
+
+
+        <button
+            class="owner-nav-item"
+            onclick="window.location.href='owner-bookings.html'"
+        >
+
+            <span>📋</span>
+
+            <p>
+                Bookings
+            </p>
+
+        </button>
+
+
+        <button
+            class="owner-nav-item"
+            onclick="window.location.href='owner-profile.html'"
+        >
+
+            <span>👤</span>
+
+            <p>
+                Profile
+            </p>
+
+        </button>
+
+    </nav>
+
+
+    <script src="js/owner-dashboard.js"></script>
+
+</body>
+
+</html>

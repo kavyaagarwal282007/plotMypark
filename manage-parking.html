@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>plotMypark | Manage Parking</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =====================================================
+         TOP NAVBAR
+         ===================================================== -->
+
+    <header class="top-nav">
+
+        <div class="logo">
+            plot<span>My</span>park
+        </div>
+
+
+        <div class="nav-actions">
+
+            <button
+                class="icon-btn"
+                onclick="showOwnerNotification()"
+                title="Notifications"
+            >
+                🔔
+            </button>
+
+
+            <button
+                class="profile-btn"
+                onclick="window.location.href='owner-profile.html'"
+                title="Owner Profile"
+            >
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="manage-parking-page">
+
+
+        <!-- =================================================
+             BACK
+             ================================================= -->
+
+        <button
+            class="owner-back-btn"
+            onclick="window.location.href='owner-profile.html'"
+        >
+            ← Owner Dashboard
+        </button>
+
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <section class="manage-header">
+
+            <div>
+
+                <p class="small-text">
+                    PARKING MANAGEMENT
+                </p>
+
+
+                <h1>
+                    Manage your parking
+                </h1>
+
+
+                <p>
+                    Keep your space details, availability and
+                    bookings under control.
+                </p>
+
+            </div>
+
+
+            <div class="owner-live-badge">
+
+                <span></span>
+
+                SPACE ACTIVE
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PARKING SPACE OVERVIEW
+             ================================================= -->
+
+        <section class="owner-space-card">
+
+
+            <div class="owner-space-top">
+
+
+                <div class="owner-space-icon">
+                    🅿️
+                </div>
+
+
+                <div class="owner-space-title">
+
+                    <p class="small-text">
+                        YOUR PARKING SPACE
+                    </p>
+
+
+                    <h2 id="parkingName">
+                        Parking Space
+                    </h2>
+
+
+                    <p id="parkingLocation">
+                        📍 Kanpur, Uttar Pradesh
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="space-status active-status"
+                    id="spaceStatus"
+                >
+                    ● Active
+                </span>
+
+            </div>
+
+
+
+            <!-- SPACE INFO -->
+
+            <div class="owner-space-info">
+
+
+                <div class="owner-info-item">
+
+                    <span>
+                        📍
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Location
+                        </small>
+
+                        <strong id="spaceCity">
+                            Kanpur
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="owner-info-item">
+
+                    <span>
+                        💰
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Hourly Rate
+                        </small>
+
+                        <strong id="spaceRate">
+                            ₹20 / hour
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="owner-info-item">
+
+                    <span>
+                        🚗
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Capacity
+                        </small>
+
+                        <strong id="spaceCapacity">
+                            1 Vehicle
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EDIT -->
+
+            <button
+                class="edit-space-btn"
+                onclick="toggleEditSpace()"
+            >
+                ✏️ Edit Space
+            </button>
+
+
+
+            <!-- EDIT FORM -->
+
+            <div
+                id="editSpaceForm"
+                class="edit-space-form hidden"
+            >
+
+                <div class="manage-input">
+
+                    <label>
+                        Parking Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editParkingName"
+                        placeholder="Enter parking name"
+                    >
+
+                </div>
+
+
+                <div class="manage-input">
+
+                    <label>
+                        City / Area
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editParkingCity"
+                        placeholder="Enter location"
+                    >
+
+                </div>
+
+
+                <div class="manage-input">
+
+                    <label>
+                        Hourly Rate
+                    </label>
+
+                    <input
+                        type="number"
+                        id="editParkingRate"
+                        placeholder="20"
+                    >
+
+                </div>
+
+
+                <div class="edit-actions">
+
+                    <button
+                        class="save-space-btn"
+                        onclick="saveSpaceChanges()"
+                    >
+                        ✓ Save Changes
+                    </button>
+
+
+                    <button
+                        class="cancel-edit-btn"
+                        onclick="toggleEditSpace()"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK STATS
+             ================================================= -->
+
+        <section class="manage-stats">
+
+
+            <div class="manage-stat-card">
+
+                <div class="manage-stat-icon green">
+                    🚗
+                </div>
+
+                <div>
+
+                    <strong id="todayBookings">
+                        0
+                    </strong>
+
+                    <span>
+                        Today's Bookings
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="manage-stat-card">
+
+                <div class="manage-stat-icon blue">
+                    📅
+                </div>
+
+                <div>
+
+                    <strong id="upcomingBookings">
+                        0
+                    </strong>
+
+                    <span>
+                        Upcoming
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="manage-stat-card">
+
+                <div class="manage-stat-icon yellow">
+                    💰
+                </div>
+
+                <div>
+
+                    <strong id="todayEarnings">
+                        ₹0
+                    </strong>
+
+                    <span>
+                        Today's Earnings
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             AVAILABILITY CONTROL
+             ================================================= -->
+
+        <section class="availability-control">
+
+
+            <div class="availability-heading">
+
+                <div>
+
+                    <p class="small-text">
+                        AVAILABILITY
+                    </p>
+
+                    <h2>
+                        Parking status
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="availability-state"
+                    id="availabilityState"
+                >
+
+                    <span></span>
+
+                    Available
+
+                </div>
+
+            </div>
+
+
+
+            <p class="availability-description">
+
+                Turn your parking space on or off when you
+                don't want to receive new reservations.
+
+            </p>
+
+
+
+            <div class="availability-actions">
+
+
+                <button
+                    class="availability-btn active"
+                    id="availableBtn"
+                    onclick="setAvailability('available')"
+                >
+
+                    🟢
+
+                    <span>
+
+                        <strong>
+                            Available
+                        </strong>
+
+                        <small>
+                            Accept new bookings
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    class="availability-btn"
+                    id="unavailableBtn"
+                    onclick="setAvailability('unavailable')"
+                >
+
+                    ⏸️
+
+                    <span>
+
+                        <strong>
+                            Temporarily unavailable
+                        </strong>
+
+                        <small>
+                            Stop new bookings
+                        </small>
+
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOOKINGS
+             ================================================= -->
+
+        <section class="manage-bookings">
+
+
+            <div class="manage-section-heading">
+
+                <div>
+
+                    <p class="small-text">
+                        RESERVATIONS
+                    </p>
+
+                    <h2>
+                        Recent bookings
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="manage-view-btn"
+                    onclick="window.location.href='owner-profile.html'"
+                >
+                    View all →
+                </button>
+
+            </div>
+
+
+
+            <div
+                id="manageBookingList"
+                class="manage-booking-list"
+            >
+
+                <!-- Bookings generated by JavaScript -->
+
+            </div>
+
+
+            <div
+                id="noManageBookings"
+                class="no-manage-bookings hidden"
+            >
+
+                <div>
+                    🅿️
+                </div>
+
+                <h3>
+                    No bookings yet
+                </h3>
+
+                <p>
+                    New reservations for your parking space
+                    will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OWNER TIP
+             ================================================= -->
+
+        <section class="owner-tip">
+
+            <div class="owner-tip-icon">
+                ✦
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Smart parking tip
+                </strong>
+
+                <p>
+                    Keeping availability updated helps drivers
+                    find your space faster and improves booking
+                    accuracy.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav class="bottom-nav">
+
+
+        <button
+            class="bottom-item"
+            onclick="window.location.href='owner-profile.html'"
+        >
+
+            <span>
+                🏠
+            </span>
+
+            <p>
+                Dashboard
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="bottom-item active"
+        >
+
+            <span>
+                🅿️
+            </span>
+
+            <p>
+                Parking
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="bottom-item"
+            onclick="window.location.href='owner-bookings.html'"
+        >
+
+            <span>
+                🧾
+            </span>
+
+            <p>
+                Bookings
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="bottom-item"
+            onclick="window.location.href='owner-profile.html'"
+        >
+
+            <span>
+                👤
+            </span>
+
+            <p>
+                Profile
+            </p>
+
+        </button>
+
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /* =================================================
+           LOAD OWNER PARKING
+           ================================================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadOwnerSpace();
+
+                loadOwnerBookings();
+
+                loadAvailability();
+
+            }
+        );
+
+
+
+        /* =================================================
+           OWNER SPACE
+           ================================================= */
+
+        function loadOwnerSpace() {
+
+            const savedSpace =
+                localStorage.getItem(
+                    "ownerSpace"
+                );
+
+
+            if (!savedSpace) {
+
+                return;
+
+            }
+
+
+            try {
+
+                const space =
+                    JSON.parse(
+                        savedSpace
+                    );
+
+
+                document.getElementById(
+                    "parkingName"
+                ).textContent =
+                    space.spaceName ||
+                    "Parking Space";
+
+
+                document.getElementById(
+                    "parkingLocation"
+                ).textContent =
+                    "📍 " +
+                    (
+                        space.city ||
+                        "Kanpur, Uttar Pradesh"
+                    );
+
+
+                document.getElementById(
+                    "spaceCity"
+                ).textContent =
+                    space.city ||
+                    "Kanpur";
+
+
+                if (space.rate) {
+
+                    document.getElementById(
+                        "spaceRate"
+                    ).textContent =
+                        "₹" +
+                        space.rate +
+                        " / hour";
+
+                }
+
+
+                if (space.capacity) {
+
+                    document.getElementById(
+                        "spaceCapacity"
+                    ).textContent =
+                        space.capacity +
+                        " Vehicle" +
+                        (
+                            Number(space.capacity) > 1
+                                ? "s"
+                                : ""
+                        );
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.log(
+                    "Unable to load owner space."
+                );
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           EDIT SPACE
+           ================================================= */
+
+        function toggleEditSpace() {
+
+            const form =
+                document.getElementById(
+                    "editSpaceForm"
+                );
+
+
+            if (
+                form.classList.contains(
+                    "hidden"
+                )
+            ) {
+
+                const savedSpace =
+                    localStorage.getItem(
+                        "ownerSpace"
+                    );
+
+
+                if (savedSpace) {
+
+                    try {
+
+                        const space =
+                            JSON.parse(
+                                savedSpace
+                            );
+
+
+                        document.getElementById(
+                            "editParkingName"
+                        ).value =
+                            space.spaceName ||
+                            "";
+
+
+                        document.getElementById(
+                            "editParkingCity"
+                        ).value =
+                            space.city ||
+                            "";
+
+
+                        document.getElementById(
+                            "editParkingRate"
+                        ).value =
+                            space.rate ||
+                            20;
+
+                    }
+
+                    catch (error) {
+
+                        console.log(error);
+
+                    }
+
+                }
+
+
+                form.classList.remove(
+                    "hidden"
+                );
+
+            }
+
+            else {
+
+                form.classList.add(
+                    "hidden"
+                );
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           SAVE SPACE
+           ================================================= */
+
+        function saveSpaceChanges() {
+
+            const name =
+                document.getElementById(
+                    "editParkingName"
+                ).value.trim();
+
+
+            const city =
+                document.getElementById(
+                    "editParkingCity"
+                ).value.trim();
+
+
+            const rate =
+                document.getElementById(
+                    "editParkingRate"
+                ).value;
+
+
+            if (!name || !city || !rate) {
+
+                alert(
+                    "Please fill all parking details."
+                );
+
+                return;
+
+            }
+
+
+            let oldSpace = {};
+
+
+            const savedSpace =
+                localStorage.getItem(
+                    "ownerSpace"
+                );
+
+
+            if (savedSpace) {
+
+                try {
+
+                    oldSpace =
+                        JSON.parse(
+                            savedSpace
+                        );
+
+                }
+
+                catch (error) {
+
+                    oldSpace = {};
+
+                }
+
+            }
+
+
+            const updatedSpace = {
+
+                ...oldSpace,
+
+                spaceName: name,
+
+                city: city,
+
+                rate: rate
+
+            };
+
+
+            localStorage.setItem(
+                "ownerSpace",
+                JSON.stringify(
+                    updatedSpace
+                )
+            );
+
+
+            loadOwnerSpace();
+
+
+            document.getElementById(
+                "editSpaceForm"
+            ).classList.add(
+                "hidden"
+            );
+
+
+            showOwnerMessage(
+                "✓ Parking details updated"
+            );
+
+        }
+
+
+
+        /* =================================================
+           AVAILABILITY
+           ================================================= */
+
+        function loadAvailability() {
+
+            const status =
+                localStorage.getItem(
+                    "ownerAvailability"
+                ) ||
+                "available";
+
+
+            setAvailabilityUI(
+                status
+            );
+
+        }
+
+
+
+        function setAvailability(status) {
+
+            localStorage.setItem(
+                "ownerAvailability",
+                status
+            );
+
+
+            setAvailabilityUI(
+                status
+            );
+
+
+            if (status === "available") {
+
+                showOwnerMessage(
+                    "🟢 Your parking is now available."
+                );
+
+            }
+
+            else {
+
+                showOwnerMessage(
+                    "⏸️ New bookings are temporarily paused."
+                );
+
+            }
+
+        }
+
+
+
+        function setAvailabilityUI(status) {
+
+            const availableBtn =
+                document.getElementById(
+                    "availableBtn"
+                );
+
+
+            const unavailableBtn =
+                document.getElementById(
+                    "unavailableBtn"
+                );
+
+
+            const state =
+                document.getElementById(
+                    "availabilityState"
+                );
+
+
+            availableBtn.classList.remove(
+                "active"
+            );
+
+
+            unavailableBtn.classList.remove(
+                "active"
+            );
+
+
+            if (status === "available") {
+
+                availableBtn.classList.add(
+                    "active"
+                );
+
+
+                state.innerHTML =
+                    "<span></span> Available";
+
+
+                state.className =
+                    "availability-state available-state";
+
+            }
+
+            else {
+
+                unavailableBtn.classList.add(
+                    "active"
+                );
+
+
+                state.innerHTML =
+                    "<span></span> Temporarily unavailable";
+
+
+                state.className =
+                    "availability-state unavailable-state";
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           BOOKINGS
+           ================================================= */
+
+        function loadOwnerBookings() {
+
+            let bookings =
+                JSON.parse(
+                    localStorage.getItem(
+                        "ownerBookings"
+                    )
+                );
+
+
+            if (!bookings) {
+
+                bookings = [];
+
+            }
+
+
+            const list =
+                document.getElementById(
+                    "manageBookingList"
+                );
+
+
+            const empty =
+                document.getElementById(
+                    "noManageBookings"
+                );
+
+
+            list.innerHTML = "";
+
+
+            if (
+                bookings.length === 0
+            ) {
+
+                empty.classList.remove(
+                    "hidden"
+                );
+
+                updateStats([]);
+
+                return;
+
+            }
+
+
+            empty.classList.add(
+                "hidden"
+            );
+
+
+            const recent =
+                bookings.slice(
+                    0,
+                    4
+                );
+
+
+            recent.forEach(
+                function (booking) {
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "manage-booking-card";
+
+
+                    let statusText =
+                        booking.status ||
+                        "upcoming";
+
+
+                    statusText =
+                        statusText
+                            .charAt(0)
+                            .toUpperCase() +
+                        statusText.slice(1);
+
+
+                    card.innerHTML = `
+
+                        <div class="manage-booking-driver">
+
+                            <div class="driver-avatar-small">
+                                ${booking.driver
+                                    ? booking.driver.charAt(0)
+                                    : "D"}
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    ${booking.driver || "Driver"}
+                                </strong>
+
+                                <small>
+                                    ${booking.vehicle || "Vehicle"}
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="manage-booking-time">
+
+                            <strong>
+                                ${booking.time || "Time not set"}
+                            </strong>
+
+                            <small>
+                                ${booking.date || "Today"}
+                            </small>
+
+                        </div>
+
+
+                        <div class="manage-booking-status">
+
+                            <span class="
+                                manage-status
+                                manage-status-${booking.status || "upcoming"}
+                            ">
+                                ${statusText}
+                            </span>
+
+                            <strong>
+                                ₹${booking.amount || 0}
+                            </strong>
+
+                        </div>
+
+                    `;
+
+
+                    list.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+
+            updateStats(
+                bookings
+            );
+
+        }
+
+
+
+        /* =================================================
+           STATS
+           ================================================= */
+
+        function updateStats(bookings) {
+
+            const today =
+                "17 Aug 2026";
+
+
+            const todayBookings =
+                bookings.filter(
+                    function (booking) {
+
+                        return booking.date === today;
+
+                    }
+                );
+
+
+            const upcoming =
+                bookings.filter(
+                    function (booking) {
+
+                        return (
+                            booking.status ===
+                            "upcoming"
+                        );
+
+                    }
+                );
+
+
+            const earnings =
+                todayBookings.reduce(
+                    function (total, booking) {
+
+                        return (
+                            total +
+                            Number(
+                                booking.amount || 0
+                            )
+                        );
+
+                    },
+                    0
+                );
+
+
+            document.getElementById(
+                "todayBookings"
+            ).textContent =
+                todayBookings.length;
+
+
+            document.getElementById(
+                "upcomingBookings"
+            ).textContent =
+                upcoming.length;
+
+
+            document.getElementById(
+                "todayEarnings"
+            ).textContent =
+                "₹" +
+                earnings;
+
+        }
+
+
+
+        /* =================================================
+           NOTIFICATION
+           ================================================= */
+
+        function showOwnerNotification() {
+
+            showOwnerMessage(
+                "🔔 You're all caught up!"
+            );
+
+        }
+
+
+
+        /* =================================================
+           SMALL MESSAGE
+           ================================================= */
+
+        function showOwnerMessage(message) {
+
+            const existing =
+                document.querySelector(
+                    ".owner-toast"
+                );
+
+
+            if (existing) {
+
+                existing.remove();
+
+            }
+
+
+            const toast =
+                document.createElement(
+                    "div"
+                );
+
+
+            toast.className =
+                "owner-toast";
+
+
+            toast.textContent =
+                message;
+
+
+            document.body.appendChild(
+                toast
+            );
+
+
+            setTimeout(
+                function () {
+
+                    toast.classList.add(
+                        "hide"
+                    );
+
+                },
+                1700
+            );
+
+
+            setTimeout(
+                function () {
+
+                    toast.remove();
+
+                },
+                2100
+            );
+
+        }
+
+    </script>
+
+
+</body>
+</html>
