@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account - plotMyPark</title>
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+
+            background: linear-gradient(
+                135deg,
+                #eef4ff,
+                #dce9ff
+            );
+        }
+
+
+        /* =========================
+           REGISTER CONTAINER
+        ========================= */
+
+        .register-container {
+            width: 100%;
+            max-width: 420px;
+
+            background: #ffffff;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            text-align: center;
+
+            font-size: 30px;
+            font-weight: 700;
+
+            /* Change this color to EXACTLY
+               the color used in your main logo */
+            color: #2563eb;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           SUBTITLE
+        ========================= */
+
+        .subtitle {
+            text-align: center;
+
+            color: #6b7280;
+
+            font-size: 14px;
+
+            margin-bottom: 28px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #333333;
+        }
+
+
+        /* =========================
+           INPUTS
+        ========================= */
+
+        input {
+            width: 100%;
+
+            padding: 13px 14px;
+
+            border: 1px solid #d9dce3;
+
+            border-radius: 9px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.2s ease;
+        }
+
+        input::placeholder {
+            color: #9ca3af;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37, 99, 235, 0.10);
+        }
+
+
+        /* =========================
+           REGISTER BUTTON
+        ========================= */
+
+        .register-btn {
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            margin-top: 5px;
+
+            transition: 0.2s ease;
+        }
+
+        .register-btn:hover {
+            background: #1d4ed8;
+
+            transform: translateY(-1px);
+        }
+
+        .register-btn:active {
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           LOGIN LINK
+        ========================= */
+
+        .login-text {
+            text-align: center;
+
+            margin-top: 22px;
+
+            font-size: 14px;
+
+            color: #6b7280;
+        }
+
+        .login-text a {
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-weight: 600;
+        }
+
+        .login-text a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            .register-container {
+                padding: 25px 20px;
+            }
+
+            .logo {
+                font-size: 27px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="register-container">
+
+        <!-- Logo -->
+        <div class="logo">
+            plotMyPark
+        </div>
+
+        <p class="subtitle">
+            Create your account and park smarter
+        </p>
+
+
+        <!-- Registration Form -->
+        <form id="registerForm">
+
+            <!-- Full Name -->
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Phone -->
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter your phone number"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Button -->
+            <button
+                type="submit"
+                class="register-btn"
+            >
+                Create Account
+            </button>
+
+        </form>
+
+
+        <!-- Login -->
+        <p class="login-text">
+
+            Already have an account?
+
+            <a href="index.html">
+                Login
+            </a>
+
+        </p>
+
+    </div>
+
+
+    <script>
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+
+        registerForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById("name").value.trim();
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const phone =
+                    document.getElementById("phone").value.trim();
+
+                const password =
+                    document.getElementById("password").value;
+
+                const confirmPassword =
+                    document.getElementById("confirmPassword").value;
+
+
+                /* Password Match */
+
+                if (password !== confirmPassword) {
+
+                    alert("Passwords do not match!");
+
+                    return;
+                }
+
+
+                /* Password Length */
+
+                if (password.length < 6) {
+
+                    alert(
+                        "Password must contain at least 6 characters."
+                    );
+
+                    return;
+                }
+
+
+                /* Temporary Frontend Registration */
+
+                const user = {
+
+                    name: name,
+
+                    email: email,
+
+                    phone: phone
+
+                };
+
+
+                localStorage.setItem(
+                    "plotMyParkUser",
+                    JSON.stringify(user)
+                );
+
+
+                alert(
+                    "Account created successfully!"
+                );
+
+
+                /* Go back to Login */
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
