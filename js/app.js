@@ -1,11 +1,6 @@
-/* =========================================================
-   PLOT MYPARK - APP.JS
-   ========================================================= */
-
-
-/* =========================================================
+/* =========================
    PARKING DATA
-   ========================================================= */
+========================= */
 
 const parkingData = [
     {
@@ -35,12 +30,13 @@ const parkingData = [
 ];
 
 
-/* =========================================================
+const parkingList =
+    document.getElementById("parkingList");
+
+
+/* =========================
    DISPLAY PARKING
-   ========================================================= */
-
-const parkingList = document.getElementById("parkingList");
-
+========================= */
 
 function displayParking(data) {
 
@@ -48,75 +44,42 @@ function displayParking(data) {
 
     parkingList.innerHTML = "";
 
-    if (data.length === 0) {
-
-        parkingList.innerHTML = `
-            <div class="empty-bookings">
-                <span>🔍</span>
-                <p>No parking found</p>
-                <small>
-                    Try searching for another location.
-                </small>
-            </div>
-        `;
-
-        return;
-    }
-
-
     data.forEach(parking => {
 
-        const card = document.createElement("div");
+        const card =
+            document.createElement("div");
 
         card.className = "parking-card";
 
-
         card.innerHTML = `
-
             <div>
+                <h3>${parking.name}</h3>
 
-                <h3>
-                    ${parking.name}
-                </h3>
+                <p>📍 ${parking.distance}</p>
 
-                <p>
-                    📍 ${parking.distance}
-                </p>
-
-                <p>
-                    💰 ${parking.price}
-                </p>
-
+                <p>💰 ${parking.price}</p>
             </div>
 
-
             <span class="available-badge">
-
                 🟢 ${parking.available} available
-
             </span>
-
         `;
-
 
         parkingList.appendChild(card);
 
     });
-
 }
 
 
-/* =========================================================
-   INITIAL PARKING DISPLAY
-   ========================================================= */
-
-displayParking(parkingData);
+if (parkingList) {
+    displayParking(parkingData);
+}
 
 
 
-/* =========================================================
-   PARKING SEARCH
-   ========================================================= */
+/* =========================
+   SEARCH
+========================= */
 
 const searchInput =
     document.getElementById("parkingSearch");
@@ -135,11 +98,10 @@ if (searchInput) {
 
 
             const filteredParking =
-                parkingData.filter(
-                    parking =>
-                        parking.name
-                            .toLowerCase()
-                            .includes(searchValue)
+                parkingData.filter(parking =>
+                    parking.name
+                        .toLowerCase()
+                        .includes(searchValue)
                 );
 
 
@@ -152,13 +114,14 @@ if (searchInput) {
 
 
 
-/* =========================================================
+/* =========================
    NAVIGATION
-   ========================================================= */
+========================= */
 
 function goToParking() {
 
-    window.location.href = "parking.html";
+    window.location.href =
+        "parking.html";
 
 }
 
@@ -176,30 +139,30 @@ function activateNavAndNavigate(
 
     navButtons.forEach(item => {
 
-        item.classList.remove("active");
+        item.classList.remove(
+            "active"
+        );
 
     });
 
 
     if (button) {
 
-        button.classList.add("active");
+        button.classList.add(
+            "active"
+        );
 
     }
 
 
-    setTimeout(
-        function () {
+    setTimeout(() => {
 
-            window.location.href =
-                targetPage;
+        window.location.href =
+            targetPage;
 
-        },
-        150
-    );
+    }, 150);
 
 }
-
 
 
 function goToHistory() {
@@ -218,7 +181,6 @@ function goToHistory() {
 }
 
 
-
 function viewParkingDetails() {
 
     alert(
@@ -229,184 +191,147 @@ function viewParkingDetails() {
 
 
 
-/* =========================================================
-   USER NAME + TIME-BASED GREETING
-   ========================================================= */
+/* =========================
+   USER NAME + GREETING
+========================= */
 
-const savedUser =
-    localStorage.getItem(
-        "plotMyparkUser"
-    );
+function loadUserGreeting() {
 
-
-const userNameElement =
-    document.getElementById(
-        "userName"
-    );
-
-
-if (savedUser && userNameElement) {
-
-    let userName = "Driver";
-
-
-    /*
-       New registration stores:
-       {
-           name,
-           email,
-           phone
-       }
-
-       Older login may store only
-       the email string.
-    */
-
-    try {
-
-        const parsedUser =
-            JSON.parse(savedUser);
-
-
-        if (
-            parsedUser &&
-            parsedUser.name
-        ) {
-
-            userName =
-                parsedUser.name;
-
-        } else if (
-            parsedUser &&
-            parsedUser.email
-        ) {
-
-            userName =
-                parsedUser.email
-                    .split("@")[0];
-
-        }
-
-    } catch (error) {
-
-        /*
-           If localStorage contains
-           an old plain email/string.
-        */
-
-        if (
-            savedUser.includes("@")
-        ) {
-
-            userName =
-                savedUser
-                    .split("@")[0];
-
-        } else {
-
-            userName =
-                savedUser;
-
-        }
-
-    }
-
-
-    userNameElement.textContent =
-        userName;
-
-}
-
-
-
-/* =========================================================
-   TIME-BASED GREETING
-   ========================================================= */
-
-function updateGreeting() {
-
-    const greetingElement =
-        document.querySelector(
-            ".welcome-content h1"
+    const userNameElement =
+        document.getElementById(
+            "userName"
         );
 
 
-    if (!greetingElement) return;
+    if (!userNameElement) return;
 
 
-    const hour =
+    const savedUser =
+        localStorage.getItem(
+            "plotMyParkUser"
+        );
+
+
+    let name = "Driver";
+
+
+    if (savedUser) {
+
+        try {
+
+            /*
+                New registered-user format:
+
+                {
+                    name: "Kavya Agarwal",
+                    email: "...",
+                    phone: "..."
+                }
+            */
+
+            const user =
+                JSON.parse(savedUser);
+
+
+            if (
+                user &&
+                user.name &&
+                user.name.trim() !== ""
+            ) {
+
+                name =
+                    user.name.trim();
+
+            }
+
+        } catch (error) {
+
+            /*
+                Support old data where
+                only an email was stored.
+            */
+
+            if (
+                savedUser.includes("@")
+            ) {
+
+                name =
+                    savedUser
+                        .split("@")[0];
+
+            } else {
+
+                name =
+                    savedUser;
+
+            }
+
+        }
+
+    }
+
+
+    /* =========================
+       TIME BASED GREETING
+    ========================= */
+
+    const currentHour =
         new Date().getHours();
 
 
-    let greeting =
-        "Good evening";
+    let greeting;
 
 
-    if (hour >= 5 && hour < 12) {
+    if (currentHour < 12) {
 
-        greeting =
-            "Good morning";
+        greeting = "Good morning";
 
-    } else if (
-        hour >= 12 &&
-        hour < 17
-    ) {
+    } else if (currentHour < 17) {
 
-        greeting =
-            "Good afternoon";
-
-    } else if (
-        hour >= 17 &&
-        hour < 21
-    ) {
-
-        greeting =
-            "Good evening";
+        greeting = "Good afternoon";
 
     } else {
 
-        greeting =
-            "Good night";
+        greeting = "Good evening";
 
     }
 
 
     /*
-       Replace only the greeting text
-       while keeping the user's name
-       and emoji intact.
+        Find the existing h1
+        and replace only the greeting.
     */
 
-    const name =
-        userNameElement
-            ? userNameElement.textContent
-            : "Driver";
+    const heading =
+        userNameElement.parentElement
+            ?.querySelector("h1");
 
 
-    greetingElement.innerHTML = `
+    if (heading) {
 
-        ${greeting},
+        heading.innerHTML =
+            `${greeting}, <span id="userName">${name}</span> 👋`;
 
-        <span id="userName">
-            ${name}
-        </span>
+    } else {
 
-        👋
+        userNameElement.textContent =
+            name;
 
-    `;
+    }
 
 }
 
 
-updateGreeting();
 
+/* =========================
+   LOAD USER
+========================= */
 
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-/* =========================================================
-   KEEP GREETING UPDATED
-   ========================================================= */
+        loadUserGreeting();
 
-setInterval(
-    updateGreeting,
-    60000
+    }
 );

@@ -1,15 +1,30 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>plotMypark | Profile</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
 
+
 <body class="dashboard-body">
+
+
+    <!-- TOP NAVBAR -->
 
     <header class="top-nav">
 
@@ -17,115 +32,352 @@
             plot<span>My</span>park
         </div>
 
+
         <div class="nav-actions">
-            <button class="icon-btn">🔔</button>
-            <button class="profile-btn">👤</button>
+
+            <button class="icon-btn">
+                🔔
+            </button>
+
+
+            <button class="profile-btn">
+                👤
+            </button>
+
         </div>
 
     </header>
 
 
+
+    <!-- PROFILE -->
+
     <main class="profile-page">
+
+
+        <!-- PROFILE HEADER -->
 
         <section class="profile-header">
 
-            <div class="profile-avatar">
-                K
+
+            <div
+                class="profile-avatar"
+                id="profileAvatar"
+            >
+                U
             </div>
 
+
             <div>
-                <p class="small-text">MY ACCOUNT</p>
 
-                <h1>Kavya Agarwal</h1>
+                <p class="small-text">
+                    MY ACCOUNT
+                </p>
 
-                <p>Demo User</p>
+
+                <h1 id="profileName">
+                    User
+                </h1>
+
+
+                <p id="profileType">
+                    plotMypark User
+                </p>
+
             </div>
 
         </section>
 
+
+
+        <!-- PROFILE DETAILS -->
 
         <section class="profile-card">
 
+
+            <!-- NAME -->
+
             <div class="profile-row">
-                <span>👤</span>
+
+                <span>
+                    👤
+                </span>
+
 
                 <div>
-                    <small>Name</small>
-                    <strong>Kavya Agarwal</strong>
+
+                    <small>
+                        Name
+                    </small>
+
+
+                    <strong id="profileNameDetail">
+                        User
+                    </strong>
+
                 </div>
+
             </div>
 
 
+
+            <!-- EMAIL -->
+
             <div class="profile-row">
-                <span>📧</span>
+
+                <span>
+                    📧
+                </span>
+
 
                 <div>
-                    <small>Email</small>
-                    <strong>demo@plotmypark.com</strong>
+
+                    <small>
+                        Email
+                    </small>
+
+
+                    <strong id="profileEmail">
+                        —
+                    </strong>
+
                 </div>
+
             </div>
 
 
+
+            <!-- PHONE -->
+
             <div class="profile-row">
-                <span>📱</span>
+
+                <span>
+                    📱
+                </span>
+
 
                 <div>
-                    <small>Phone</small>
-                    <strong>+91 XXXXX XXXXX</strong>
+
+                    <small>
+                        Phone
+                    </small>
+
+
+                    <strong id="profilePhone">
+                        —
+                    </strong>
+
                 </div>
+
             </div>
+
 
         </section>
 
 
+
+        <!-- LOGOUT -->
+
         <button
             class="logout-btn"
-            onclick="window.location.href='index.html'"
+            id="logoutBtn"
         >
             Logout
         </button>
 
+
     </main>
 
 
+
+    <!-- BOTTOM NAV -->
+
     <nav class="bottom-nav">
+
+
+        <!-- HOME -->
 
         <button
             class="bottom-item"
             onclick="window.location.href='home.html'"
         >
-            <span>⌂</span>
-            <p>Home</p>
+
+            <span>
+                ⌂
+            </span>
+
+            <p>
+                Home
+            </p>
+
         </button>
 
+
+
+        <!-- PARKING -->
 
         <button
             class="bottom-item"
             onclick="window.location.href='parking.html'"
         >
-            <span>🅿️</span>
-            <p>Parking</p>
+
+            <span>
+                🅿️
+            </span>
+
+            <p>
+                Parking
+            </p>
+
         </button>
 
+
+
+        <!-- HISTORY -->
 
         <button
             class="bottom-item"
             onclick="window.location.href='history.html'"
         >
-            <span>🧾</span>
-            <p>History</p>
+
+            <span>
+                🧾
+            </span>
+
+            <p>
+                History
+            </p>
+
         </button>
 
+
+
+        <!-- PROFILE -->
 
         <button
             class="bottom-item active"
             onclick="window.location.href='profile.html'"
         >
-            <span>👤</span>
-            <p>Profile</p>
+
+            <span>
+                👤
+            </span>
+
+            <p>
+                Profile
+            </p>
+
         </button>
+
 
     </nav>
 
+
+
+    <!-- PROFILE JAVASCRIPT -->
+
+    <script>
+
+        const savedUser =
+            localStorage.getItem("plotMyParkUser");
+
+
+        if (savedUser) {
+
+            try {
+
+                const user =
+                    JSON.parse(savedUser);
+
+
+                /*
+                 * NAME
+                 */
+
+                const name =
+                    user.name || "User";
+
+
+                document.getElementById(
+                    "profileName"
+                ).textContent = name;
+
+
+                document.getElementById(
+                    "profileNameDetail"
+                ).textContent = name;
+
+
+
+                /*
+                 * EMAIL
+                 */
+
+                document.getElementById(
+                    "profileEmail"
+                ).textContent =
+                    user.email || "Not provided";
+
+
+
+                /*
+                 * PHONE
+                 */
+
+                document.getElementById(
+                    "profilePhone"
+                ).textContent =
+                    user.phone || "Not provided";
+
+
+
+                /*
+                 * PROFILE AVATAR
+                 */
+
+                document.getElementById(
+                    "profileAvatar"
+                ).textContent =
+                    name.charAt(0).toUpperCase();
+
+
+            } catch (error) {
+
+                console.log(
+                    "Unable to load user profile."
+                );
+
+            }
+
+        }
+
+
+
+        /*
+         * LOGOUT
+         */
+
+        document.getElementById(
+            "logoutBtn"
+        ).addEventListener(
+            "click",
+            function () {
+
+                localStorage.removeItem(
+                    "plotMyParkUser"
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+    </script>
+
+
 </body>
+
 </html>
+```

@@ -1,4 +1,3 @@
-```javascript
 const loginForm = document.getElementById("loginForm");
 const demoLogin = document.getElementById("demoLogin");
 
@@ -7,67 +6,89 @@ const demoLogin = document.getElementById("demoLogin");
    NORMAL LOGIN
 ========================= */
 
-loginForm.addEventListener("submit", function (event) {
+if (loginForm) {
 
-    event.preventDefault();
+    loginForm.addEventListener("submit", function (event) {
 
-    const email =
-        document.getElementById("email").value.trim();
+        event.preventDefault();
 
-    const password =
-        document.getElementById("password").value.trim();
+        const email =
+            document.getElementById("email").value.trim();
 
-
-    if (email === "" || password === "") {
-
-        alert("Please enter your login details.");
-
-        return;
-    }
+        const password =
+            document.getElementById("password").value.trim();
 
 
-    /*
-        Check if a registered user already exists.
-        The registration page stores the complete
-        user object in localStorage.
-    */
+        if (email === "" || password === "") {
 
-    const registeredUser =
-        localStorage.getItem("plotMyParkUser");
+            alert("Please enter your login details.");
+
+            return;
+        }
 
 
-    if (registeredUser) {
+        /*
+            Get registered user
+        */
 
-        try {
-
-            const user =
-                JSON.parse(registeredUser);
+        const savedUser =
+            localStorage.getItem("plotMyParkUser");
 
 
-            /*
-                Keep the registered user's name,
-                email and phone.
+        if (savedUser) {
 
-                We only update the login email
-                if necessary.
-            */
+            try {
 
-            if (
-                user.email &&
-                user.email.toLowerCase() === email.toLowerCase()
-            ) {
+                const user =
+                    JSON.parse(savedUser);
 
-                localStorage.setItem(
-                    "plotMyParkUser",
-                    JSON.stringify(user)
-                );
-
-            } else {
 
                 /*
-                    If this is a different login,
-                    save the entered email but keep
-                    a readable name.
+                    If registered email matches,
+                    keep the registered name.
+                */
+
+                if (
+                    user.email &&
+                    user.email.toLowerCase() ===
+                    email.toLowerCase()
+                ) {
+
+                    localStorage.setItem(
+                        "plotMyParkUser",
+                        JSON.stringify(user)
+                    );
+
+                } else {
+
+                    /*
+                        Login with another email
+                    */
+
+                    const loginUser = {
+
+                        name: email.includes("@")
+                            ? email.split("@")[0]
+                            : email,
+
+                        email: email,
+
+                        phone: ""
+
+                    };
+
+
+                    localStorage.setItem(
+                        "plotMyParkUser",
+                        JSON.stringify(loginUser)
+                    );
+
+                }
+
+            } catch (error) {
+
+                /*
+                    Old localStorage data
                 */
 
                 const loginUser = {
@@ -78,22 +99,22 @@ loginForm.addEventListener("submit", function (event) {
 
                     email: email,
 
-                    phone: user.phone || ""
+                    phone: ""
 
                 };
+
 
                 localStorage.setItem(
                     "plotMyParkUser",
                     JSON.stringify(loginUser)
                 );
+
             }
 
-
-        } catch (error) {
+        } else {
 
             /*
-                If old data is just a plain email,
-                convert it into a user object.
+                No registered user
             */
 
             const loginUser = {
@@ -108,42 +129,22 @@ loginForm.addEventListener("submit", function (event) {
 
             };
 
+
             localStorage.setItem(
                 "plotMyParkUser",
                 JSON.stringify(loginUser)
             );
+
         }
 
 
-    } else {
+        /* GO TO HOME */
 
-        /*
-            No registered account found.
-            Create a temporary login user.
-        */
+        window.location.href = "home.html";
 
-        const loginUser = {
+    });
 
-            name: email.includes("@")
-                ? email.split("@")[0]
-                : email,
-
-            email: email,
-
-            phone: ""
-
-        };
-
-        localStorage.setItem(
-            "plotMyParkUser",
-            JSON.stringify(loginUser)
-        );
-    }
-
-
-    window.location.href = "home.html";
-
-});
+}
 
 
 
@@ -151,26 +152,31 @@ loginForm.addEventListener("submit", function (event) {
    DEMO LOGIN
 ========================= */
 
-demoLogin.addEventListener("click", function () {
+if (demoLogin) {
 
-    const demoUser = {
+    demoLogin.addEventListener("click", function () {
 
-        name: "Demo User",
+        const demoUser = {
 
-        email: "demo@plotmypark.com",
+            name: "Demo User",
 
-        phone: "+91 XXXXX XXXXX"
+            email: "demo@plotmypark.com",
 
-    };
+            phone: "+91 XXXXX XXXXX"
 
-
-    localStorage.setItem(
-        "plotMyParkUser",
-        JSON.stringify(demoUser)
-    );
+        };
 
 
-    window.location.href = "home.html";
+        localStorage.setItem(
+            "plotMyParkUser",
+            JSON.stringify(demoUser)
+        );
 
-});
-```
+
+        /* GO TO HOME */
+
+        window.location.href = "home.html";
+
+    });
+
+}
