@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -238,6 +239,7 @@
 
                             <input
                                 type="checkbox"
+                                id="rememberMe"
                             >
 
                             Remember me
@@ -342,7 +344,6 @@
 
                     </button>
 
-
                 </div>
 
 
@@ -395,10 +396,64 @@
 
     <!-- =================================================
          EXISTING AUTHENTICATION
-         DO NOT REMOVE
          ================================================= -->
 
     <script src="js/auth.js"></script>
+
+
+
+    <!-- =================================================
+         USER NAME SUPPORT
+         ================================================= -->
+
+    <script>
+
+        /*
+         * Keep the registered user's name available
+         * for the Home page.
+         *
+         * The actual name should be saved by register.html
+         * / auth.js during account creation.
+         */
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const savedName =
+                localStorage.getItem("userName");
+
+            const savedEmail =
+                localStorage.getItem("userEmail");
+
+            /*
+             * If an existing authentication system already
+             * saved the user's name, preserve it.
+             */
+
+            if (savedName && savedName.trim() !== "") {
+
+                localStorage.setItem(
+                    "currentUserName",
+                    savedName.trim()
+                );
+
+            }
+
+            /*
+             * Keep the logged-in email available as well.
+             */
+
+            if (savedEmail && savedEmail.trim() !== "") {
+
+                localStorage.setItem(
+                    "currentUserEmail",
+                    savedEmail.trim()
+                );
+
+            }
+
+        });
+
+    </script>
 
 
 
@@ -421,9 +476,13 @@
                 setTimeout(
                     function () {
 
-                        splash.classList.add(
-                            "intro-finished"
-                        );
+                        if (splash) {
+
+                            splash.classList.add(
+                                "intro-finished"
+                            );
+
+                        }
 
                     },
                     1900
@@ -438,3 +497,4 @@
 </body>
 
 </html>
+```
