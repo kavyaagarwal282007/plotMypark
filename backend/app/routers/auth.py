@@ -14,11 +14,14 @@ def register(payload: schemas.UserCreate, db: Session = Depends(get_db)):
     if existing:
         raise HTTPException(status_code=400, detail="Email already registered")
 
+    role = payload.role if payload.role in ("citizen", "owner") else "citizen"
+
     user = models.User(
         name=payload.name,
         email=payload.email,
         phone=payload.phone,
         hashed_password=auth.hash_password(payload.password),
+        role=models.UserRole(role),
     )
     db.add(user)
     db.commit()

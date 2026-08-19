@@ -20,6 +20,13 @@ def gen_uuid():
 class UserRole(str, enum.Enum):
     citizen = "citizen"
     admin = "admin"
+    owner = "owner"  # registers and manages their own parking space(s)
+
+
+class ZoneStatus(str, enum.Enum):
+    pending = "pending"   # submitted by owner, awaiting approval
+    active = "active"     # visible to citizens, bookable
+    closed = "closed"     # owner temporarily closed it
 
 
 class SlotStatus(str, enum.Enum):
@@ -70,7 +77,8 @@ class Vehicle(Base):
 
 
 class ParkingZone(Base):
-    """A logical parking area, e.g. a street or lot, containing many slots."""
+    """A logical parking area, e.g. a street or lot, containing many slots.
+    Either city-managed (owner_id is null) or owner-submitted (owner_id set)."""
     __tablename__ = "parking_zones"
 
     id = Column(UUID(as_uuid=False), primary_key=True, default=gen_uuid)
@@ -81,7 +89,15 @@ class ParkingZone(Base):
     base_price = Column(Float, default=20.0)  # per hour, in ₹
     created_at = Column(DateTime, default=datetime.utcnow)
 
+    # Owner-space fields (null/default for city-managed zones)
+    owner_id = Column(UUID(as_uuid=False), ForeignKey("users.id"), nullable=True)
+    status = Column(Enum(ZoneStatus), default=ZoneStatus.active, nullable=False)
+    space_type = Column(String, nullable=True)  # "existing" | "vacant"
+    opening_time = Column(String, nullable=True)  # "08:00"
+    closing_time = Column(String, nullable=True)  # "22:00"
+
     slots = relationship("ParkingSlot", back_populates="zone")
+    owner = relationship("User", foreign_keys=[owner_id])
 
 
 class ParkingSlot(Base):

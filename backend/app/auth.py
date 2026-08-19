@@ -56,3 +56,9 @@ def require_admin(user: models.User = Depends(get_current_user)) -> models.User:
     if user.role != models.UserRole.admin:
         raise HTTPException(status_code=403, detail="Admin access required")
     return user
+
+
+def require_owner(user: models.User = Depends(get_current_user)) -> models.User:
+    if user.role != models.UserRole.owner:
+        raise HTTPException(status_code=403, detail="Owner access required")
+    return user

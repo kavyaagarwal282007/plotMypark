@@ -39,7 +39,11 @@ def _zone_to_out(zone: models.ParkingZone, db: Session) -> schemas.ParkingZoneOu
 
 @router.get("", response_model=List[schemas.ParkingZoneOut])
 def list_parking(db: Session = Depends(get_db)):
-    zones = db.query(models.ParkingZone).all()
+    # Only show zones citizens can actually book: city-managed zones
+    # (owner_id is null) and owner-listed zones that are approved/active.
+    zones = db.query(models.ParkingZone).filter(
+        (models.ParkingZone.owner_id.is_(None)) | (models.ParkingZone.status == models.ZoneStatus.active)
+    ).all()
     return [_zone_to_out(z, db) for z in zones]
 
 
@@ -64,6 +68,9 @@ def nearby_parking(
             ST_Distance(models.ParkingZone.location, user_point).label("distance"),
         )
         .filter(ST_Distance(models.ParkingZone.location, user_point) <= radius_m)
+        .filter(
+            (models.ParkingZone.owner_id.is_(None)) | (models.ParkingZone.status == models.ZoneStatus.active)
+        )
         .order_by("distance")
         .all()
     )

@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import Base, engine
-from app.routers import auth, parking, booking, ai, admin, realtime
+from app.routers import auth, parking, booking, ai, admin, realtime, owner
 
 # Creates tables if they don't exist. For real migrations, use Alembic instead.
 Base.metadata.create_all(bind=engine)
@@ -27,6 +27,7 @@ app.include_router(booking.router)
 app.include_router(ai.router)
 app.include_router(admin.router)
 app.include_router(realtime.router)
+app.include_router(owner.router)
 
 
 @app.get("/")
